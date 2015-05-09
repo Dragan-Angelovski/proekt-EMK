@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-md-4">
+      <img class="img-rounded" style="width:100px" src="imgs/spring_in_action_3rd_edition.jpg"/>
+    </div>
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <h4 ng-click="display()" class="clickable">{{entity.name}}</h4>
+      </div>
+      <div class="col-md-4 label label-info">
+        {{ entity.category.name }}
+      </div>
+      <div class="col-md-2" ng-if="shoppingCart">
+        <button class="btn btn-primary btn-xs" ng-click="addToCart()">
+          <i class="fa fa-fw fa-shopping-cart"></i> Add to cart
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-md-12">{{entity.description}}</div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-10" >Price: {{entity.price}}</div>
+    </div>
+
+  </div>
+</div>

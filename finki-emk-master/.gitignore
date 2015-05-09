@@ -1,0 +1,21 @@
+#Maven 
+target/
+
+#Eclipse
+.settings/
+
+#Intellij
+.idea/
+.iml
+
+#node js
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components/
+
+#lucene
+emk_lucene/
+
+

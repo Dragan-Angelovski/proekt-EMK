@@ -1,0 +1,16 @@
+<div class="row">
+
+  <div class="row" ng-repeat="e in entities">
+    <book-display class="col-md-8" entity="e.book"></book-display>
+  </div>
+
+  <div class="col-xs-3 col-xs-offset-6 panel">
+    <div class="panel-body">
+      <div class="">
+        <strong>Total: {{totalPayment}}</strong>
+        <button type="button" class="btn btn-primary" ng-click="pay()">Pay</button>
+      </div>
+    </div>
+  </div>
+
+</div>
