@@ -6,14 +6,14 @@ FirstApp.controller('BrowseCategoryController', [
   '$scope',
   'crudService',
   '$routeParams',
-  'BookService',
-  function ($scope, crudService, $routeParams, BookService) {
+  'ProductService',
+  function ($scope, crudService, $routeParams, ProductService) {
     var categoryService = crudService('categories');
     $scope.cat = categoryService.get({
       id: $routeParams.id
     });
 
-    $scope.entities = BookService.findByCategory({
+    $scope.entities = ProductService.findByCategory({
       id: $routeParams.id
     });
 

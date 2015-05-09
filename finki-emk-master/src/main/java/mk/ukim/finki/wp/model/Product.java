@@ -33,6 +33,7 @@ public class Product extends BaseEntity {
 
 	@ManyToOne
 	private Stall stall;
+	
 	public String getName() {
 		return name;
 	}
