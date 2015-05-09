@@ -583,7 +583,7 @@
                     <server>tomcat-development-server</server>
 
                     <port>9955</port>
-                    <path>/e-comerce</path>
+                    <path>/green-market</path>
 
                     <clientAuth>false</clientAuth>
                     <httpsPort>9442</httpsPort>
