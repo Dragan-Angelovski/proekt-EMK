@@ -127,6 +127,7 @@
 <script src="scripts/controllers/country.js"></script>
 <script src="scripts/controllers/category.js"></script>
 <script src="scripts/controllers/book.js"></script>
+<script src="scripts/controllers/product.js"></script>
 <script src="scripts/controllers/login.js"></script>
 <script src="scripts/controllers/browse-category.js"></script>
 <script src="scripts/controllers/search.js"></script>

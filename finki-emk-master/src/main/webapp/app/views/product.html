@@ -1,0 +1,69 @@
+<div class="row">
+	<script type="text/ng-template" id="ng-table/filters/category.html">
+        <select style="width: auto;" class="form-control"  name="category" ng-model="params.filter()[name]">
+			<option selected value="">Any</option>
+			<option ng-repeat="catName in catNames" value="{{catName}}"> {{catName}} </option>
+		</select>
+    </script>
+	<script  type="text/ng-template" id="ng-table/filters/type.html">
+		<select  style="width: auto;" class="form-control"  name="type" ng-model="params.filter()[name]">
+			<option selected value="">Any</option>
+			<option ng-repeat="typeName in typeNames" value="{{typeName}}"> {{typeName}} </option>
+		</select>
+    </script>
+    
+    
+	<div class="col-md-12">
+	
+		<h2>Products</h2>
+		<div class="form-group">
+		<button ng-click="showEdit(e)" class="btn btn-success btn-xs">
+			<i class="glyphicon glyphicon-pencil"></i> Add Product
+		</button>
+		</div>
+		<table ng-table="tableParams" show-filter="true"
+			class="table table-bordered table-striped">
+
+			<tr ng-repeat="e in $data">
+				<td data-title="'Name'" sortable="'name'"
+					filter="{ 'name': 'text' }">{{ e.name }}</td>
+				<td data-title="'Category'" sortable="'category.name'"
+					filter="{ 'category': 'category' }">{{ e.category.name }}</td>
+				<td data-title="' Type '" sortable="'type.name'"
+					filter="{ 'type': 'type' }">{{ e.type.name }}</td>
+				<td data-title="'Price'" sortable="'price'"
+					filter="{ 'price': 'text' }">{{ e.price }}</td>
+				<td data-title="'Quantity'" sortable="'quantity'"
+					filter="{ 'quantity': 'text' }">{{ e.quantity }}</td>
+				<td data-title="'Description'" filter="{ 'description': 'text' }">{{
+					e.description }}</td>
+					
+					<style>
+						.trim-info {
+      max-width: 150px;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;  
+      line-height: 15px;
+      position: relative;
+   }
+					</style>
+					
+				<td data-title="'Edit'">
+					<button ng-click="showEdit(e)" class="btn btn-primary btn-xs">
+						<i class="glyphicon glyphicon-edit"></i> Edit
+					</button>
+				</td>
+				
+				<td data-title="'Remove'">
+					<button ng-click="remove(e.id)" class="btn btn-danger btn-xs">
+						<i class="glyphicon glyphicon-remove"></i> Remove
+					</button>
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+
+</div>
