@@ -10,57 +10,74 @@
  *        through the $scope.
  * @see https://docs.angularjs.org/guide/di
  */
-FirstApp.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'views/main.html',
-    controller: 'MainCtrl'
-  });
+FirstApp.config([ '$routeProvider', function($routeProvider) {
+	$routeProvider.when('/', {
+		templateUrl : 'views/main.html',
+		controller : 'MainCtrl'
+	});
 
+	$routeProvider.when('/types', {
+		templateUrl : 'views/type.html',
+		controller : 'TypeController'
+	});
+	
+	$routeProvider.when('/test', {
+		templateUrl : 'views/test.html'
+	});
 
-  $routeProvider.when('/browse_category/:id', {
-    templateUrl: 'views/browse_category.html',
-    controller: 'BrowseCategoryController'
-  });
+	$routeProvider.when('/categories', {
+		templateUrl : 'views/category.html',
+		controller : 'CategoryController'
+	});
 
-  $routeProvider.when('/book/details/:id', {
-    templateUrl: 'views/book_details.html'
-  });
+	// pateka za listanje na site tezgi
+	$routeProvider.when('/stalls', {
+		templateUrl : 'views/stall.html',
+		controller : 'StallController'
+	});
 
-  $routeProvider.when('/login', {
-    templateUrl: 'views/login.html',
-    controller: 'LoginController'
-  });
+	$routeProvider.when('/products/:id?', {
+		templateUrl : 'views/product.html',
+		controller : 'ProductController'
+	});
 
+	$routeProvider.when('/browse_category/:id', {
+		templateUrl : 'views/browse_category.html',
+		controller : 'BrowseCategoryController'
+	});
 
-  $routeProvider.when('/categories', {
-    templateUrl: 'views/category.html',
-    controller: 'CategoryController'
-  });
+	$routeProvider.when('/book/details/:id', {
+		templateUrl : 'views/book_details.html'
+	});
 
-  $routeProvider.when('/books/:id?', {
-    templateUrl: 'views/book.html',
-    controller: 'BookController'
-  });
+	$routeProvider.when('/login', {
+		templateUrl : 'views/login.html',
+		controller : 'LoginController'
+	});
 
-  $routeProvider.when('/search', {
-    templateUrl: 'views/search_results.html',
-    controller: 'SearchController'
-  });
+	$routeProvider.when('/books/:id?', {
+		templateUrl : 'views/book.html',
+		controller : 'BookController'
+	});
 
-  $routeProvider.when('/order_items', {
-    templateUrl: 'views/order.html',
-    controller: 'OrderController'
-  });
+	$routeProvider.when('/search', {
+		templateUrl : 'views/search_results.html',
+		controller : 'SearchController'
+	});
 
-  $routeProvider.when('/pay_order', {
-    templateUrl: 'views/pay_order.html'
-  });
+	$routeProvider.when('/order_items', {
+		templateUrl : 'views/order.html',
+		controller : 'OrderController'
+	});
 
+	$routeProvider.when('/pay_order', {
+		templateUrl : 'views/pay_order.html'
+	});
 
-  $routeProvider.when('/404', {
-    templateUrl: '404.html'
-  });
-  $routeProvider.otherwise({
-    redirectTo: '/'
-  });
-}]);
+	$routeProvider.when('/404', {
+		templateUrl : '404.html'
+	});
+	$routeProvider.otherwise({
+		redirectTo : '/'
+	});
+} ]);
