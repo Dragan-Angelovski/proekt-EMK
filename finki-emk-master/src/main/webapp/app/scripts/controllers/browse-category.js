@@ -12,10 +12,10 @@ FirstApp.controller('BrowseCategoryController', [
     $scope.cat = categoryService.get({
       id: $routeParams.id
     });
-    
-    
+
     $scope.entities = ProductService.findByCategory({
       id: $routeParams.id
     });
-    
+
+
   }]);

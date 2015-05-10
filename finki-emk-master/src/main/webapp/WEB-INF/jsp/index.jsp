@@ -141,7 +141,6 @@
 <script src="scripts/services/books.js"></script>
 <script src="scripts/services/orders.js"></script>
 <script src="scripts/services/product.js"></script>
-<script src="scripts/services/type.js"></script>
 
 <script src="scripts/directives/combo.js"></script>
 <script src="scripts/directives/book-display.js"></script>

@@ -27,9 +27,4 @@ BaseEntityCrudServiceImpl<Product, ProductRepository> implements
 		return repository.findByCategoryId(id);
 	}
 
-	@Override
-	public List<Product> findByTypeId(Long id) {
-		return repository.findByTypeId(id);
-	}
-
 }
