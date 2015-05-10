@@ -8,8 +8,6 @@ FirstApp
 						'toaster',
 						function($scope, crudService, $routeParams, toaster) {
 							var service = crudService('types');
-							
-							toaster.pop('hello','hello2','hello3');
 
 							$scope.entities = service.query();
 							if ($routeParams.id) {

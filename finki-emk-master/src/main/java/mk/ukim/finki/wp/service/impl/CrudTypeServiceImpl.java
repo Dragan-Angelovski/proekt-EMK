@@ -1,5 +1,8 @@
 package mk.ukim.finki.wp.service.impl;
 
+import java.util.List;
+
+import mk.ukim.finki.wp.model.Product;
 import mk.ukim.finki.wp.model.TypeProduct;
 import mk.ukim.finki.wp.repository.TypeRepository;
 import mk.ukim.finki.wp.service.CrudTypeService;
@@ -19,6 +22,5 @@ public class CrudTypeServiceImpl extends
 	protected TypeRepository getRepository() {
 		return repository;
 	}
-
 	
 }

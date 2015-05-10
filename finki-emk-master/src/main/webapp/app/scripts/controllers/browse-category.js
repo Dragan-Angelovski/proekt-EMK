@@ -16,6 +16,5 @@ FirstApp.controller('BrowseCategoryController', [
     $scope.entities = ProductService.findByCategory({
       id: $routeParams.id
     });
-
-
+   
   }]);

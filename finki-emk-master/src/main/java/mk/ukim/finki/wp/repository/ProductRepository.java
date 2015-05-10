@@ -13,6 +13,6 @@ public interface ProductRepository extends JpaSpecificationRepository<Product> {
 	
 	List<Product> findByCategoryId(Long id);
 	
-	List<Book> findByCategory(Category category);
+	List<Product> findByCategory(Category category);
 	
 }
