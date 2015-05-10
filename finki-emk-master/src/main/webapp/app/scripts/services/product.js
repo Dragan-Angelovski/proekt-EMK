@@ -22,7 +22,12 @@ FirstApp.factory('ProductService', ['$resource', 'settings', function($resource,
     paged: {
       method: 'GET',
       url: "/data/rest/products/paged"
-    }
+    },
+    findByType:{
+    	method: 'GET',
+        url: "/data/rest/products/by_type/:id",
+        isArray: true
+    }	
   });
 
 }]);

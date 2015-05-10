@@ -13,7 +13,6 @@ FirstApp
 						function($scope, crudService, $routeParams, toaster,
 								settings, ngTableParams, $filter, $modal) {
 
-						
 							var service = crudService('products');
 							var categoryService = crudService('categories');
 							var typeService = crudService('types');
@@ -28,12 +27,10 @@ FirstApp
 
 								$scope.catNames = catNames;
 							});
-							
+
 							typeService.query(function(data) {
 								types = data;
-								
-								
-								
+
 								var typeNames = [];
 								angular.forEach(types, function(val, key) {
 									typeNames.push(val.name);
@@ -59,12 +56,13 @@ FirstApp
 										},
 										{
 											total : data.length,
-											counts : [2, 5, 10, 20],
+											counts : [ 2, 5, 10, 20 ],
 
 											// groupBy: 'price',
 											getData : function($defer, params) {
-												
-												var filteredData = params.filter() ? $filter(
+
+												var filteredData = params
+														.filter() ? $filter(
 														'filter')(data,
 														params.filter()) : data;
 
@@ -77,10 +75,10 @@ FirstApp
 
 												params
 														.total(orderedData.length); // set
-																					// total
-																					// for
-																					// recalc
-																					// paginati
+												// total
+												// for
+												// recalc
+												// paginati
 
 												$defer
 														.resolve(orderedData
@@ -151,29 +149,29 @@ FirstApp
 												});
 
 							};
-							
+
 							var modalInstance = $modal({
 								template : 'views/productModalContent.html',
 								scope : $scope,
-								show: false
+								show : false
 							});
-							
-							$scope.ok=function(){
+
+							$scope.ok = function() {
 								$scope.save();
 								modalInstance.hide();
 							}
-							
+
 							$scope.cancel = function() {
 								modalInstance.hide();
 							}
 
 							$scope.showEdit = function(entity) {
-								if(entity != null) {
-									$scope.entity = $.extend( true, {}, entity );									
+								if (entity != null) {
+									$scope.entity = $.extend(true, {}, entity);
 								} else {
 									$scope.entity = {};
 								}
 								modalInstance.$promise.then(modalInstance.show);
 							};
 
-						}]);
+						} ]);
