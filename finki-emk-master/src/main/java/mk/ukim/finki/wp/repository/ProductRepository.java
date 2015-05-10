@@ -15,4 +15,8 @@ public interface ProductRepository extends JpaSpecificationRepository<Product> {
 	
 	List<Book> findByCategory(Category category);
 	
+	//Proba
+	//Listanje na proizvodi spored daden tip
+	List<Product> findByTypeId(Long id);
+	
 }
