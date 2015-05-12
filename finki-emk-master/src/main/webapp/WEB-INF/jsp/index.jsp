@@ -150,6 +150,7 @@
 
 <script src="scripts/directives/combo.js"></script>
 <script src="scripts/directives/book-display.js"></script>
+<script src="scripts/directives/stall-display.js"></script>
 <!-- endbuild -->
 
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
