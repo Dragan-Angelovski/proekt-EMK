@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import mk.ukim.finki.wp.model.Book;
+
 import mk.ukim.finki.wp.model.TypeProduct;
 import mk.ukim.finki.wp.service.CrudTypeService;
 import mk.ukim.finki.wp.web.CrudResource;
