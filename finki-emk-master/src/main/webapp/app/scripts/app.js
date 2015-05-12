@@ -44,17 +44,34 @@ FirstApp.run([
   'crudService',
   '$cookieStore',
   'UserService',
+  'TypeService',
   function($rootScope,
            $http,
            $cookies,
            $location,
            crudService,
            $cookieStore,
-           UserService) {
+           UserService,
+           TypeService) {
 
     var categoryService = crudService('categories');
+
+    $rootScope.categ = [];
     
-    $rootScope.categories = categoryService.query();
+    $rootScope.categories = categoryService.query(function () {
+    	 angular.forEach($rootScope.categories, function(val) {
+    			$rootScope.categ[val.id] = TypeService.findByCategory({
+    				id:val.id
+    			});
+    		});
+    	 
+    	 console.log($rootScope.categ);
+    });
+    
+    
+   
+    
+    
     $rootScope.collapseTabs = function(index, status){
     	var next = ! status[index];
     	var l = 	status.length;
