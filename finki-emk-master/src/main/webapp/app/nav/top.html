@@ -1,75 +1,59 @@
-<nav class="navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Green Market</a>
-    </div>
-    <div class="collapse navbar-collapse">
+<nav role="navigation" class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Green Market</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a ng-href="{{$root.pateka}}">Home</a></li>
+				<li><a ng-href="#/categories">Category</a></li>
+				<li><a ng-href="#/books">Books</a></li>
+				<li><a ng-href="#/products">Products</a></li>
 
+				<li><a ng-href="#/types">Types</a></li>
 
-      <ul class="nav nav-pills pull-right">
-        <!-- Search form -->
-        <form class="navbar-form navbar-left" role="search" ng-submit="search()" ng-controller="SearchController">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" ng-model="searchField">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+				<li><a ng-href="#/order_items">Shopping Cart</a></li>
 
+			</ul>
+			<ul class="nav nav-pills pull-right">
+				<!-- Search form -->
+				<form class="navbar-form navbar-left" role="search"
+					ng-submit="search()" ng-controller="SearchController">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search"
+							ng-model="searchField">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<li class="dropdown" ng-controller="LanguageController"><a
+					href="#" class="dropdown-toggle" data-toggle="dropdown"> <span>
+							<i class="fa fa-fw fa-flag"></i> <span class="hidden-tablet"
+							translate="generic.language"></span> <b class="caret"></b>
+					</span>
+				</a>
+					<ul class="dropdown-menu">
+						<li class="{{isActive(l.name) ? 'active':''}}"
+							ng-repeat="l in languages"><a
+							ng-click="changeLanguage(l.name)"> <span
+								class="famfamfam-flag-{{l.name}}"></span>&nbsp;<span
+								translate="generic.{{l.name}}"></span></a></li>
 
-        <li class="active">
-          <a ng-href="{{$root.pateka}}">Home</a>
-        </li>
-        <li>
-          <a ng-href="#/categories">Category Administration</a>
-        </li>
-        <li>
-          <a ng-href="#/books">Books</a>
-        </li>
-        <li>
-          <a ng-href="#/products">Products</a>
-        </li>
-        
-          <li>
-          <a ng-href="#/types">Types</a>
-        </li>
+					</ul></li>
 
-        <li>
-          <a ng-href="#/order_items">Shopping Cart</a>
-        </li>
-
-        <li class="dropdown" ng-controller="LanguageController">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span>
-                <i class="fa fa-fw fa-flag"></i>
-                <span class="hidden-tablet" translate="generic.language"></span>
-                <b class="caret"></b>
-            </span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="{{isActive(l.name) ? 'active':''}}" ng-repeat="l in languages">
-              <a ng-click="changeLanguage(l.name)">
-                <span class="famfamfam-flag-{{l.name}}"></span>&nbsp;<span translate="generic.{{l.name}}"></span></a>
-            </li>
-
-          </ul>
-        </li>
-
-        <li>
-          <a ng-href="#/login" ng-if="!$root.user">Login</a>
-          <a ng-click="logout()" ng-if="$root.user" class="clickable" title="logout">
-            <i class="fa fa-fw fa-sign-out"></i>
-            {{$root.user.username}}
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+				<li><a ng-href="#/login" ng-if="!$root.user">Login</a> <a
+					ng-click="logout()" ng-if="$root.user" class="clickable"
+					title="logout"> <i class="fa fa-fw fa-sign-out"></i>
+						{{$root.user.username}}
+				</a></li>
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
 
 </nav>
