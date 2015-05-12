@@ -37,8 +37,8 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 
 	// pateka za listanje na site tezgi
 	$routeProvider.when('/stalls', {
-		templateUrl : 'views/stall.html',
-		controller : 'StallController'
+		templateUrl : 'views/display_stalls.html',
+		controller : 'DisplayStallsController'
 	});
 
 	$routeProvider.when('/products/:id?', {

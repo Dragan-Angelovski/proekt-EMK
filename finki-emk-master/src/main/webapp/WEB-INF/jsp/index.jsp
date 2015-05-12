@@ -132,6 +132,7 @@
 <script src="scripts/controllers/browse-category.js"></script>
 <script src="scripts/controllers/browse-type.js"></script>
 <script src="scripts/controllers/browse-stall.js"></script>
+<script src="scripts/controllers/display-stall.js"></script>
 
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/order.js"></script>
