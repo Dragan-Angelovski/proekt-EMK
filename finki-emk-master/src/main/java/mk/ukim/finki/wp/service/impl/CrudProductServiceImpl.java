@@ -27,11 +27,18 @@ BaseEntityCrudServiceImpl<Product, ProductRepository> implements
 		return repository.findByCategoryId(id);
 	}
 
-	//Lista od prizvodi od dade type
-		@Override
-		public List<Product> findByTypeId(Long id) {
-			// TODO Auto-generated method stub
-			return repository.findByTypeId(id);
-		}
+	// Lista od prizvodi od dade type
+	@Override
+	public List<Product> findByTypeId(Long id) {
+		// TODO Auto-generated method stub
+		return repository.findByTypeId(id);
+	}
+
+	//Lista od proizvodi spored tezga
+	@Override
+	public List<Product> findByStallId(Long id) {
+		// TODO Auto-generated method stub
+		return repository.findByStallId(id);
+	}
 
 }

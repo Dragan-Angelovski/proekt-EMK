@@ -20,6 +20,12 @@ FirstApp.factory('ProductService', ['$resource', 'settings', function($resource,
         url: "/data/rest/products/by_type/:id",
         isArray: true
       },
+      
+      findByStall: {
+          method: 'GET',
+          url: "/data/rest/products/by_stall/:id",
+          isArray: true
+        },
     search: {
       method: 'GET',
       url: '/data/rest/products/search',

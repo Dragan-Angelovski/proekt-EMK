@@ -8,6 +8,13 @@ import mk.ukim.finki.wp.model.Product;
 public interface CrudProductService extends BaseEntityCrudService<Product> {
 
 	public List<Product> findByCategoryId(Long id);
-	//Listanje spored daden typeId
-		public List<Product> findByTypeId(Long id);
+
+	// Listanje spored daden typeId
+	public List<Product> findByTypeId(Long id);
+	
+	//Listanje spored daden stallId
+	public List<Product> findByStallId(Long id);
+
+	
+
 }

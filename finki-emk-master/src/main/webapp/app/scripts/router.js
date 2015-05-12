@@ -46,6 +46,11 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'BrowseCategoryController'
 	});
 	
+	$routeProvider.when('/browse_stall/:id', {
+		templateUrl : 'views/browse_stall.html',
+		controller : 'BrowseStallController'
+	});
+	
 	//Browse product by type
 	$routeProvider.when('/browse_type/:id', {
 		templateUrl : 'views/browse_type.html',

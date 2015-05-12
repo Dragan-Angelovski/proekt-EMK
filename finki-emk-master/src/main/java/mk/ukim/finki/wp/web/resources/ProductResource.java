@@ -33,5 +33,10 @@ public class ProductResource extends CrudResource<Product, CrudProductService> {
 	public List<Product> getByTypeId(@PathVariable Long id) {
 		return getService().findByTypeId(id);
 	}
+	
+	@RequestMapping(value = "/by_stall/{id}", method = RequestMethod.GET, produces = "application/json")
+	public List<Product> getByStallId(@PathVariable Long id) {
+		return getService().findByStallId(id);
+	}
 
 }
