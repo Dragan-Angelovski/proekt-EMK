@@ -21,6 +21,11 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'TypeController'
 	});
 	
+	$routeProvider.when('/sellers', {
+		templateUrl : 'views/display_sellers.html',
+		controller : 'DisplaySellersController'
+	});
+	
 	$routeProvider.when('/test', {
 		templateUrl : 'views/test.html'
 	});
