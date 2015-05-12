@@ -56,6 +56,7 @@ FirstApp.run([
 
     var categoryService = crudService('categories');
 
+
     $rootScope.categ = [];
     
     $rootScope.categories = categoryService.query(function () {
@@ -81,6 +82,7 @@ FirstApp.run([
     	}
     	status[index] = next; 
     }
+
 
     $rootScope.authToken = $cookieStore.get('token');
     if($rootScope.authToken) {

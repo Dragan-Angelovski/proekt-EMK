@@ -22,10 +22,10 @@ public class CrudTypeServiceImpl extends
 		return repository;
 	}
 
+
 	@Override
 	public List<TypeProduct> findByCategoryId(Long id) {
 		return repository.findByCategoryId(id);
 	}
 
-	
 }

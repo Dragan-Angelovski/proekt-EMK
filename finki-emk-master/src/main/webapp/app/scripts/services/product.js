@@ -14,11 +14,6 @@ FirstApp.factory('ProductService', ['$resource', 'settings', function($resource,
       url: "/data/rest/products/by_category/:id",
       isArray: true
     },
-    findByType: {
-        method: 'GET',
-        url: "/data/rest/products/by_type/:id",
-        isArray: true
-      },
     search: {
       method: 'GET',
       url: '/data/rest/products/search',
