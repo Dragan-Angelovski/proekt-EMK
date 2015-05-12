@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/data/rest/types")
-public class TypeResource extends
-		CrudResource<TypeProduct, CrudTypeService> {
+public class TypeResource extends CrudResource<TypeProduct, CrudTypeService> {
 
 	@Autowired
 	private CrudTypeService service;
@@ -29,12 +28,12 @@ public class TypeResource extends
 	public CrudTypeService getService() {
 		return service;
 	}
-	
+
 	@RequestMapping(value = "/by_category/{id}", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
-    public List<TypeProduct> getByCategoryId(@PathVariable Long id,
-                                      HttpServletRequest request, HttpSession session) {
-        return getService().findByCategoryId(id);
-    }
+	@ResponseBody
+	public List<TypeProduct> getByCategoryId(@PathVariable Long id,
+			HttpServletRequest request, HttpSession session) {
+		return getService().findByCategoryId(id);
+	}
 
 }

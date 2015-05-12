@@ -65,7 +65,6 @@ FirstApp.run([
     				id:val.id
     			});
     		});
-    	 
     	 console.log($rootScope.categ);
     });
     
