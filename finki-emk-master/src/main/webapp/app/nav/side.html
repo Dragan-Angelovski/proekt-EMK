@@ -1,14 +1,76 @@
+<!-- 
 
-<div class="col-md-12" id="accordion" role="tablist"
+<ul class="nav nav-pills nav-stacked" ng-init="status=[]">
+	<li ng-repeat="cat in categories" ng-init="status[$index]=true">
+		<div class="row">
+			<div class="col-md-10">
+				<a class="btn btn-success btn-block" href="#/browse_category/{{cat.id}}">{{cat.name}}</a>
+			</div>
+			<div class="col-md-1">
+			
+				<i style="position:apsolute; left:-10%;" 
+				class="glyphicon" ng-class="{'glyphicon-collapse-up': status[$index], 'glyphicon-collapse-down': !status[$index]}"
+				 ng-click="collapseTabs($index, status)"></i>
+			</div>
+		</div>
+		
+		<div collapse="status[$index]">
+			<ul class="nav nav-pills nav-stacked">
+				<li>
+					{{cat.id}}~{{cat.name}} {{status}}
+				</li>
+			</ul>
+		</div>
+	</div>
+	</li>
+</ul>
+{{status}}
+<div>
+WWWWWWWWWWWWWWWWWWWWWWWW
+</div>
+ -->
+<accordion close-others="true">
+	<div ng-repeat="cat in categories">
+	<a class="btn btn-success col-md-10" style="position:absolute; left:40px;" href="http://localhost:9955/green-market/#/browse_category/{{cat.id}}">{{cat.name}}</a>
+    <accordion-group  is-open="status[$index].open">
+    	
+       <accordion-heading ng-click="status[$index].open=!status[$index].open">
+       <div>
+       		|
+            <i class="pull-right glyphicon" ng-class="{'glyphicon-collapse-up': status[$index].open, 'glyphicon-collapse-down': !status[$index].open}"></i>
+  	  </div>
+        </accordion-heading>
+        {{cat.id}}~~~{{status[$index].open}}
+    </accordion-group>
+    </div>
+  </accordion>
+
+<!-- <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+        <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+    <accordion-group is-open="status.open">
+        <accordion-heading>
+            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </accordion-heading>
+        This is just some content to illustrate fancy headings.
+    </accordion-group> -->
+
+
+<!-- <div class="col-md-12" id="accordion" role="tablist"
 	aria-multiselectable="false">
 	<div class="accordion-group" ng-repeat="cat in categories">
 		<div role="tab" id="heading{{cat.id}}">
 
-			<!-- <ul class="nav nav-pills nav-stacked ">
+			<ul class="nav nav-pills nav-stacked ">
 				<li><a class="btn btn-primary nav-pills" data-toggle="collapse"
 					data-parent="#accordion" href="#cat{{cat.id}}" aria-expanded="true"
 					aria-controls="cat{{cat.id}}"> {{cat.name}} </a></li>
-			</ul> -->
+			</ul>
 
 			<button ng-click="#cat{{cat.id}}" type="button"
 				class="btn btn-primary btn-block" data-toggle="collapse"
@@ -21,14 +83,14 @@
 			aria-labelledby="heading{{cat.id}}">
 			<div class="">
 				<ul class="nav nav-pills nav-stacked ">
-					<li class="col-md-12">
+					<li>
 					
-					<a class="btn btn-default btn-block"
+					<a class="btn btn-danger btn-block"
 						role="button" href="#/browse_category/{{cat.id}}">{{cat.name}} </a>
 
 						
-							<!-- <button class="btn btn-success btn-block" onclick="location.href='#/browse_category/'">{{ cat.name}} {{cat.id}}</button> -->
-							<!-- <input class="btn btn-success btn-block" type="submit" value="{{ cat.name}}"> -->
+							<button class="btn btn-success btn-block" onclick="location.href='#/browse_category/'">{{ cat.name}} {{cat.id}}</button>
+							<input class="btn btn-success btn-block" type="submit" value="{{ cat.name}}">
 						
 						</li>
 				</ul>
@@ -37,6 +99,34 @@
 	</div>
     
 
-</div>
+</div> -->
 
+
+
+<!-- <div id="MainMenu">
+  <div class="list-group panel">
+    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Item 3</a>
+    <div class="collapse" id="demo3">
+      <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Subitem 1 <i class="fa fa-caret-down"></i></a>
+      <div class="collapse list-group-submenu" id="SubMenu1">
+        <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 1 a</a>
+        <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 2 b</a>
+        <a href="#SubSubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Subitem 3 c <i class="fa fa-caret-down"></i></a>
+        <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+          <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 1</a>
+          <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 2</a>
+        </div>
+        <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a>
+      </div>
+      <a href="javascript:;" class="list-group-item">Subitem 2</a>
+      <a href="javascript:;" class="list-group-item">Subitem 3</a>
+    </div>
+    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Item 4</a>
+    <div class="collapse" id="demo4">
+      <a href="" class="list-group-item">Subitem 1</a>
+      <a href="" class="list-group-item">Subitem 2</a>
+      <a href="" class="list-group-item">Subitem 3</a>
+    </div>
+  </div>
+</div> -->
 

@@ -53,8 +53,17 @@ FirstApp.run([
            UserService) {
 
     var categoryService = crudService('categories');
-
+    
     $rootScope.categories = categoryService.query();
+    $rootScope.collapseTabs = function(index, status){
+    	var next = ! status[index];
+    	var l = 	status.length;
+    	console.log(status);
+    	for (var i = 0; i < l; i++) {
+    	    status[i] = true;
+    	}
+    	status[index] = next; 
+    }
 
     $rootScope.authToken = $cookieStore.get('token');
     if($rootScope.authToken) {
