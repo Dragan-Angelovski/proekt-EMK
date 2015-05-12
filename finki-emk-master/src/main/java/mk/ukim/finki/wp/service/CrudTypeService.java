@@ -9,3 +9,4 @@ public interface CrudTypeService extends BaseEntityCrudService<TypeProduct> {
 	public List<TypeProduct> findByCategoryId(Long id);
 
 }
+
