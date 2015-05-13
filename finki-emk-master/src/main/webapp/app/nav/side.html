@@ -1,21 +1,25 @@
 
-<accordion close-others="true">
-	<div ng-repeat="cat in categories">
-	<a class="btn btn-success col-md-10" style="position:absolute; left:40px;" href="http://localhost:9955/green-market/#/browse_category/{{cat.id}}">{{cat.name}}</a>
-    <accordion-group  is-open="status[$index].open">
-    	
-       <accordion-heading ng-click="status[$index].open=!status[$index].open">
-       <div>
-       		<span style="visibility:hidden;">a</span>
-            <i class="pull-right glyphicon" ng-class="{'glyphicon-collapse-up': status[$index].open, 'glyphicon-collapse-down': !status[$index].open}"></i>
-  	  </div>
-        </accordion-heading>
-        <ul class="nav nav-pills nav-stacked">
-        	<li ng-repeat="type in categ[cat.id]">
-        		<a class="btn-danger" href="#/browse_type/{{type.id}}" >{{type.name}}</a>
-        	</li>
-        </ul>
-    </accordion-group>
-    </div>
-  </accordion>
+<div class="well">
+	<accordion close-others="true">
+		<accordion-group ng-repeat="cat in categories" is-open="status[$index].open">
+			<accordion-heading ng-click="status[$index].open=!status[$index].open">
+				 <div class="row">
+					<a ng-click="navBrowseCategory(cat.id); $event.stopPropagation();"
+						type="button" class="btn btn-primary col-md-10">
+						{{cat.name}}
+					</a>
+						
+					<i class="col-md-1 glyphicon" ng-class="{'glyphicon-collapse-up': status[$index].open, 'glyphicon-collapse-down': !status[$index].open}"
+						style="">
+					</i>
+				 </div>
+			</accordion-heading>
+			
+			<a ng-repeat="type in categ[cat.id]" ng-click="navBrowseType(type.id);"
+			 	type="button" class="btn btn-info btn-block">
+				{{type.name}}
+			</a>	
+		</accordion-group> 
+</accordion>
+</div>
 

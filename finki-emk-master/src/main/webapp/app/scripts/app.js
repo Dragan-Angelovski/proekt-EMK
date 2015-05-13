@@ -13,101 +13,101 @@
  *       directive
  * @description # avAngularStartupApp Main module of the application.
  */
-var FirstApp = angular.module('avAngularStartupApp', ['ngResource', 'ngRoute',
-  'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies',
-  'chieffancypants.loadingBar', 'ui.bootstrap', 'ui.select2',
-  'mgcrea.ngStrap', 'toaster', 'angularFileUpload',
-  'pascalprecht.translate']);
+var FirstApp = angular.module('avAngularStartupApp', [ 'ngResource', 'ngRoute',
+		'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies',
+		'chieffancypants.loadingBar', 'ui.bootstrap', 'ui.select2',
+		'mgcrea.ngStrap', 'toaster', 'angularFileUpload',
+		'pascalprecht.translate' ]);
 
-FirstApp.config(['$translateProvider', '$httpProvider', 'settings',
-  function($translateProvider, $httpProvider, settings) {
+FirstApp.config([ '$translateProvider', '$httpProvider', 'settings',
+		function($translateProvider, $httpProvider, settings) {
 
-    $httpProvider.interceptors.push('HttpInterceptors');
+			$httpProvider.interceptors.push('HttpInterceptors');
 
-    // Initialize angular-translate
-    $translateProvider.useStaticFilesLoader({
-      prefix: 'i18n/',
-      suffix: '.json'
-    });
+			// Initialize angular-translate
+			$translateProvider.useStaticFilesLoader({
+				prefix : 'i18n/',
+				suffix : '.json'
+			});
 
-    $translateProvider.preferredLanguage(settings.language);
+			$translateProvider.preferredLanguage(settings.language);
 
-    $translateProvider.useCookieStorage();
+			$translateProvider.useCookieStorage();
 
-  }]);
+		} ]);
 
-FirstApp.run([
-  '$rootScope',
-  '$http',
-  '$cookies',
-  '$location',
-  'crudService',
-  '$cookieStore',
-  'UserService',
-  'TypeService',
-  function($rootScope,
-           $http,
-           $cookies,
-           $location,
-           crudService,
-           $cookieStore,
-           UserService,
-           TypeService) {
+FirstApp
+		.run([
+				'$rootScope',
+				'$http',
+				'$cookies',
+				'$location',
+				'crudService',
+				'$cookieStore',
+				'UserService',
+				'TypeService',
+				function($rootScope, $http, $cookies, $location, crudService,
+						$cookieStore, UserService, TypeService) {
 
-    var categoryService = crudService('categories');
+					var categoryService = crudService('categories');
 
+					$rootScope.categ = [];
 
-    $rootScope.categ = [];
-    
-    $rootScope.categories = categoryService.query(function () {
-    	 angular.forEach($rootScope.categories, function(val) {
-    			$rootScope.categ[val.id] = TypeService.findByCategory({
-    				id:val.id
-    			});
-    		});
-    	 console.log($rootScope.categ);
-    });
-    
-    
-   
-    
-    
-    $rootScope.collapseTabs = function(index, status){
-    	var next = ! status[index];
-    	var l = 	status.length;
-    	console.log(status);
-    	for (var i = 0; i < l; i++) {
-    	    status[i] = true;
-    	}
-    	status[index] = next; 
-    }
+					$rootScope.categories = categoryService.query(function() {
+						angular.forEach($rootScope.categories, function(val) {
+							$rootScope.categ[val.id] = TypeService
+									.findByCategory({
+										id : val.id
+									});
+						});
+						console.log($rootScope.categ);
+					});
 
+					$rootScope.collapseTabs = function(index, status) {
+						var next = !status[index];
+						var l = status.length;
+						console.log(status);
+						for (var i = 0; i < l; i++) {
+							status[i] = true;
+						}
+						status[index] = next;
+					}
 
-    $rootScope.authToken = $cookieStore.get('token');
-    if($rootScope.authToken) {
-      UserService.get(function(u) {
-        $rootScope.user = u;
-      });
-    }
+					$rootScope.navBrowseCategory = function(catId) {
+						$location.path('browse_category/' + catId);
+					};
 
-    $rootScope.logout = function() {
-      delete $rootScope.user;
-      delete $rootScope.authToken;
-      $cookies['token'] = null;
-      delete $cookies['token'];
-      var delete_cookie = function(name) {
-        document.cookie = name + '=; Path=/e-auction; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      };
-      delete_cookie('token');
-      $location.path("/login");
-    };
+					$rootScope.navBrowseType = function(typeId) {
+						$location.path('browse_type/' + typeId);
+					};
 
-    if(!$rootScope.authToken) {
-      var tempTokenService = $http.get('/data/rest/token').
-        success(function(data, status, headers, config) {
-          console.log('token obtained')
-        });
-    }
+					$rootScope.authToken = $cookieStore.get('token');
+					if ($rootScope.authToken) {
+						UserService.get(function(u) {
+							$rootScope.user = u;
+						});
+					}
 
+					$rootScope.logout = function() {
+						delete $rootScope.user;
+						delete $rootScope.authToken;
+						$cookies['token'] = null;
+						delete $cookies['token'];
+						var delete_cookie = function(name) {
+							document.cookie = name
+									+ '=; Path=/e-auction; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+						};
+						delete_cookie('token');
+						$location.path("/login");
+					};
 
-  }]);
+					if (!$rootScope.authToken) {
+						var tempTokenService = $http
+								.get('/data/rest/token')
+								.success(
+										function(data, status, headers, config) {
+											console.log('token obtained')
+										});
+					}
+
+				} ]);
