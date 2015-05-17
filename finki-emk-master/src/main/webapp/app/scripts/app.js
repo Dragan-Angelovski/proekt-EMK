@@ -72,7 +72,7 @@ FirstApp
 						}
 						status[index] = next;
 					}
-
+					
 					$rootScope.navBrowseCategory = function(catId) {
 						$location.path('browse_category/' + catId);
 					};

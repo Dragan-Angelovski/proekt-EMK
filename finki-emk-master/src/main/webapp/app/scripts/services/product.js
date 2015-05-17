@@ -4,11 +4,6 @@
 FirstApp.factory('ProductService', ['$resource', 'settings', function($resource, settings) {
 
   return $resource('/data/rest/products/:id', {}, {
-    findPromoted: {
-      method: 'GET',
-      url: "/data/rest/products/promoted",
-      isArray: true
-    },
     findByCategory: {
       method: 'GET',
       url: "/data/rest/products/by_category/:id",
