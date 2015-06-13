@@ -1,20 +1,17 @@
 package mk.ukim.finki.wp.service.impl;
 
-import mk.ukim.finki.wp.model.Category;
-import mk.ukim.finki.wp.model.OrderItem;
-import mk.ukim.finki.wp.repository.CategoryRepository;
+import java.util.List;
+
+import mk.ukim.finki.wp.model.OrderItem_GreenMarket;
 import mk.ukim.finki.wp.repository.OrderItemRepository;
-import mk.ukim.finki.wp.service.CategoryService;
 import mk.ukim.finki.wp.service.OrderItemService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.Order;
-import java.util.List;
-
 @Service
 public class OrderItemServiceImpl extends
-        BaseEntityCrudServiceImpl<OrderItem, OrderItemRepository> implements
+        BaseEntityCrudServiceImpl<OrderItem_GreenMarket, OrderItemRepository> implements
         OrderItemService {
 
   @Autowired
@@ -26,7 +23,7 @@ public class OrderItemServiceImpl extends
   }
 
   @Override
-  public List<OrderItem> findByUserToken(String s) {
+  public List<OrderItem_GreenMarket> findByUserToken(String s) {
     return getRepository().findByUserToken(s);
   }
 }

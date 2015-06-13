@@ -1,11 +1,10 @@
 package mk.ukim.finki.wp.repository;
 
-import mk.ukim.finki.wp.model.Category;
-import mk.ukim.finki.wp.model.OrderItem;
-
 import java.util.List;
 
-public interface OrderItemRepository extends JpaSpecificationRepository<OrderItem> {
+import mk.ukim.finki.wp.model.OrderItem_GreenMarket;
 
-  List<OrderItem> findByUserToken(String s);
+public interface OrderItemRepository extends JpaSpecificationRepository<OrderItem_GreenMarket> {
+
+  List<OrderItem_GreenMarket> findByUserToken(String s);
 }

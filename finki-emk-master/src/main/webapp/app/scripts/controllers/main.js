@@ -10,7 +10,8 @@
  * @description # MainCtrl Controller of the avAngularStartupApp
  */
 
-FirstApp.controller('MainCtrl', ['$scope', 'BookService',
-  function ($scope, BookService) {
-    $scope.promotedBooks = BookService.findPromoted();
+FirstApp.controller('MainCtrl', ['$scope', 'crudService',
+  function ($scope, crudService) {
+	var service = crudService('products');
+	$scope.products = service.query();
   }]);

@@ -1,20 +1,19 @@
 package mk.ukim.finki.wp.web.resources;
 
-import com.paypal.api.payments.Address;
-import com.paypal.api.payments.CreditCard;
-import com.paypal.api.payments.Payment;
-import mk.ukim.finki.wp.model.Category;
-import mk.ukim.finki.wp.model.OrderItem;
-import mk.ukim.finki.wp.service.CategoryService;
+import java.util.List;
+
+import mk.ukim.finki.wp.model.OrderItem_GreenMarket;
 import mk.ukim.finki.wp.service.OrderItemService;
 import mk.ukim.finki.wp.service.payment.PaymentService;
-import mk.ukim.finki.wp.web.CrudResource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.paypal.api.payments.Address;
+import com.paypal.api.payments.CreditCard;
+import com.paypal.api.payments.Payment;
 
 @RestController
 @RequestMapping("/payment")
@@ -51,7 +50,7 @@ public class PaymentResource {
     creditCard.setNumber("5500005555555559");
     creditCard.setType("mastercard");
 
-    List<OrderItem> items = orderItemService.findByUserToken("4d810a7c-65e9-4db6-8457-c254ac96d127");
+    List<OrderItem_GreenMarket> items = orderItemService.findByUserToken("4d810a7c-65e9-4db6-8457-c254ac96d127");
 
     return paymentService.executeCreditCardPayment(billingAddress,
       creditCard,

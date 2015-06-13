@@ -21,16 +21,31 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'TypeController'
 	});
 	
+	$routeProvider.when('/edit/sellers', {
+		templateUrl : 'views/edit_sellers.html',
+		controller : 'EditSellersController'
+	});
+	
 	$routeProvider.when('/sellers', {
 		templateUrl : 'views/display_sellers.html',
 		controller : 'DisplaySellersController'
+	});
+	
+	$routeProvider.when('/sellers/:id', {
+		templateUrl : 'views/seller-details.html',
+		controller : 'DetailSellerController'
+	});
+	
+	$routeProvider.when('/stalls/:id', {
+		templateUrl : 'views/stall-details.html',
+		controller : 'DetailStallController'
 	});
 	
 	$routeProvider.when('/test', {
 		templateUrl : 'views/test.html'
 	});
 
-	$routeProvider.when('/categories', {
+	$routeProvider.when('/edit/categories', {
 		templateUrl : 'views/category.html',
 		controller : 'CategoryController'
 	});
@@ -62,6 +77,7 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'BrowseTypeController'
 	});
 
+	
 	$routeProvider.when('/book/details/:id', {
 		templateUrl : 'views/book_details.html'
 	});

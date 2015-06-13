@@ -133,6 +133,10 @@
 <script src="scripts/controllers/browse-type.js"></script>
 <script src="scripts/controllers/browse-stall.js"></script>
 <script src="scripts/controllers/display-stall.js"></script>
+<script src="scripts/controllers/edit-seller.js"></script>
+<script src="scripts/controllers/header.js"></script>
+<script src="scripts/controllers/seller-detail.js"></script>
+<script src="scripts/controllers/stall-detail.js"></script>
 
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/order.js"></script>
@@ -147,6 +151,8 @@
 <script src="scripts/services/orders.js"></script>
 <script src="scripts/services/product.js"></script>
 <script src="scripts/services/type.js"></script>
+<script src="scripts/services/stall.js"></script>
+
 
 <script src="scripts/directives/combo.js"></script>
 <script src="scripts/directives/book-display.js"></script>

@@ -9,7 +9,7 @@ FirstApp.controller('OrderController',
 
       $scope.entities = Order.getMyOrders(function() {
         for(var i = 0; i < $scope.entities.length; i++) {
-          $scope.totalPayment += $scope.entities[i].book.price;
+          $scope.totalPayment += $scope.entities[i].product.price;
         }
       });
 

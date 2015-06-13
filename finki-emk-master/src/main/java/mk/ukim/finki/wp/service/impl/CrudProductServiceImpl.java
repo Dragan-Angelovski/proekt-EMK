@@ -41,4 +41,11 @@ BaseEntityCrudServiceImpl<Product, ProductRepository> implements
 		return repository.findByStallId(id);
 	}
 
+	//Lista od proizvodi spored seller 
+	@Override
+	public List<Product> findBySellerId(Long id) {
+		// TODO Auto-generated method stub
+		return repository.findBySellerId(id);
+	}
+
 }

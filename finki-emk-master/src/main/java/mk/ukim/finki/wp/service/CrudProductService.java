@@ -15,6 +15,7 @@ public interface CrudProductService extends BaseEntityCrudService<Product> {
 	//Listanje spored daden stallId
 	public List<Product> findByStallId(Long id);
 
-	
+	//Listanje spored seller id
+	List<Product> findBySellerId(Long id);
 
 }

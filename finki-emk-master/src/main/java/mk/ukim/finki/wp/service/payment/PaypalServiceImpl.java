@@ -1,17 +1,27 @@
 package mk.ukim.finki.wp.service.payment;
 
-import com.paypal.api.payments.*;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import mk.ukim.finki.wp.model.OrderItem_GreenMarket;
+
+import org.springframework.stereotype.Service;
+
+import com.paypal.api.payments.Address;
+import com.paypal.api.payments.Amount;
+import com.paypal.api.payments.CreditCard;
+import com.paypal.api.payments.Details;
+import com.paypal.api.payments.FundingInstrument;
+import com.paypal.api.payments.Payer;
+import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.OAuthTokenCredential;
 import com.paypal.base.rest.PayPalRESTException;
 import com.paypal.base.rest.PayPalResource;
-import mk.ukim.finki.wp.model.OrderItem;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ristes on 6.5.15.
@@ -36,26 +46,26 @@ public class PaypalServiceImpl implements PaymentService {
   }
 
   @Override
-  public Payment executeCreditCardPayment(Address billingAddress, CreditCard creditCard, List<OrderItem> items) {
+  public Payment executeCreditCardPayment(Address billingAddress, CreditCard creditCard, List<OrderItem_GreenMarket> items) {
 
     // The Payment creation API requires a list of
     // Transaction; add the created `Transaction`
     // to a List
     List<Transaction> transactions = new ArrayList<Transaction>();
 
-    for (OrderItem item : items) {
+    for (OrderItem_GreenMarket item : items) {
       // ###Details
       // Let's you specify details of a payment amount.
       Details details = new Details();
-      details.setSubtotal((int) item.getBook().getPrice() + "");
-      details.setTax((int) (item.getBook().getPrice() * 0.18) + "");
+      details.setSubtotal((int) item.getProduct().getPrice() + "");
+      details.setTax((int) (item.getProduct().getPrice() * 0.18) + "");
 
       // ###Amount
       // Let's you specify a payment amount.
       Amount amount = new Amount();
       amount.setCurrency("USD");
       // Total must be equal to sum of shipping, tax and subtotal.
-      amount.setTotal((int) (item.getBook().getPrice() * 1.18) + "");
+      amount.setTotal((int) (item.getProduct().getPrice() * 1.18) + "");
       amount.setDetails(details);
 
       // ###Transaction
@@ -65,7 +75,7 @@ public class PaypalServiceImpl implements PaymentService {
       // a `Payee` and `Amount` types
       Transaction transaction = new Transaction();
       transaction.setAmount(amount);
-      transaction.setDescription("EMK book store: " + item.getBook().getName());
+      transaction.setDescription("EMK book store: " + item.getProduct().getName());
       transactions.add(transaction);
     }
 

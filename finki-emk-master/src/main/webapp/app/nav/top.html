@@ -9,16 +9,20 @@
 			</button>
 			<a class="navbar-brand" href="#">Green Market</a>
 		</div>
-		<div id="navbar" class="navbar-collapse collapse">
+		<div id="navbar" class="navbar-collapse collapse" ng-controller="HeaderController">
 			<ul class="nav navbar-nav">
-				<li class="active"><a ng-href="{{$root.pateka}}">Home</a></li>
-				<li><a ng-href="#/categories">Category</a></li>
-				<li><a ng-href="#/books">Books</a></li>
-				<li><a ng-href="#/products">Products</a></li>
-				<li><a ng-href="#/types">Types</a></li>
-				<li><a ng-href="#/stalls">Stalls</a></li>
-
-				<li><a ng-href="#/order_items">Shopping Cart</a></li>
+			
+				<li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>	
+				<li ng-class="{ active: isActive('/stalls')}"><a ng-href="#/stalls">Stalls</a></li>
+				<li ng-class="{ active: isActive('/sellers')}"><a ng-href="#/sellers">Sellers</a></li>
+				<li ng-class="{ active: isActive('/order_items')}"><a ng-href="#/order_items">Shopping Cart</a></li>
+				
+				<!-- Treba da se smenat -->
+				<li ng-class="{ active: isActive('/products')}"><a ng-href="#/products">Products</a></li>
+				<li ng-class="{ active: isActive('/types')}"><a ng-href="#/types">Types</a></li>
+				<li ng-class="{ active: isActive('/edit/categories')}"><a ng-href="#/edit/categories">Category</a></li>
+				
+				
 
 			</ul>
 			<ul class="nav nav-pills pull-right">

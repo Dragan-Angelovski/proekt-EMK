@@ -18,6 +18,32 @@ public class Product extends BaseEntity {
 	private double price;
 	
 	private double quantity;
+	
+	private String imgUrl;
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public Stall getStall() {
+		return stall;
+	}
+
+	public void setStall(Stall stall) {
+		this.stall = stall;
+	}
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
 
 	@Column(length = 1000)
 	private String description;
@@ -28,12 +54,11 @@ public class Product extends BaseEntity {
 	@ManyToOne
 	private TypeProduct type;
 
-	//@ManyToMany(mappedBy = "books")
-	//private List<Order> orders;
-
 	@ManyToOne
 	private Stall stall;
-	
+
+	@ManyToOne
+	private Seller seller;
 	public String getName() {
 		return name;
 	}

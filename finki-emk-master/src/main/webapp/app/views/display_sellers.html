@@ -1,10 +1,11 @@
 <div class="col-md-12">
-			<table ng-table="tableParams" show-filter="true"
-			class="table table-bordered table-striped">
-
-			<tr ng-repeat="e in $data">
-				<td data-title="'Name'" sortable="'name'"
-					filter="{ 'name': 'text' }">{{ e.name }}</td>
-			</tr>
-		</table>
+	
+	<h1>Show All Sellers</h1>
+	<table ng-table class="table">
+		<tr ng-repeat="e in entities">
+			<td data-title="'Name'"> {{e.user.fistName}}</td>
+			<td data-title="'Last name'"> {{e.user.lastName}}</td>
+			<td data-title="'Details'"><a ng-href="#/sellers/{{e.id}}">Details</a>
+		</tr>
+	</table>
 </div>
