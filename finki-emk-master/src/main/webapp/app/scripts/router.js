@@ -71,15 +71,15 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'BrowseStallController'
 	});
 
-	//Browse product by type
+	// Browse product by type
 	$routeProvider.when('/browse_type/:id', {
 		templateUrl : 'views/browse_type.html',
 		controller : 'BrowseTypeController'
 	});
 
-
-	$routeProvider.when('/book/details/:id', {
-		templateUrl : 'views/book_details.html'
+	$routeProvider.when('/product/details/:id', {
+		templateUrl : 'views/product-details.html',
+		controller : 'ProductDetailsController'
 	});
 
 	$routeProvider.when('/login', {

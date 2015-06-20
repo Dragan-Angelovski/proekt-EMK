@@ -143,6 +143,8 @@
 <script src="scripts/controllers/language.js"></script>
 <script src="scripts/controllers/type.js"></script>
 <script src="scripts/controllers/display-seller.js"></script>
+<script src="scripts/controllers/product-detail.js"></script>
+
 <!-- Services definition -->
 <script src="scripts/services/category.js"></script>
 <script src="scripts/services/crud.js"></script>
