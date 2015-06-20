@@ -20,32 +20,32 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'views/type.html',
 		controller : 'TypeController'
 	});
-	
+
 	$routeProvider.when('/edit/sellers', {
 		templateUrl : 'views/edit_sellers.html',
 		controller : 'EditSellersController'
 	});
-	
+
 	$routeProvider.when('/sellers', {
 		templateUrl : 'views/display_sellers.html',
 		controller : 'DisplaySellersController'
 	});
-	
+
 	$routeProvider.when('/sellers/:id', {
 		templateUrl : 'views/seller-details.html',
 		controller : 'DetailSellerController'
 	});
-	
+
 	$routeProvider.when('/stalls/:id', {
 		templateUrl : 'views/stall-details.html',
 		controller : 'DetailStallController'
 	});
-	
+
 	$routeProvider.when('/test', {
 		templateUrl : 'views/test.html'
 	});
 
-	$routeProvider.when('/edit/categories', {
+	$routeProvider.when('/admin/categories', {
 		templateUrl : 'views/category.html',
 		controller : 'CategoryController'
 	});
@@ -65,19 +65,19 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'views/browse_category.html',
 		controller : 'BrowseCategoryController'
 	});
-	
+
 	$routeProvider.when('/browse_stall/:id', {
 		templateUrl : 'views/browse_stall.html',
 		controller : 'BrowseStallController'
 	});
-	
+
 	//Browse product by type
 	$routeProvider.when('/browse_type/:id', {
 		templateUrl : 'views/browse_type.html',
 		controller : 'BrowseTypeController'
 	});
 
-	
+
 	$routeProvider.when('/book/details/:id', {
 		templateUrl : 'views/book_details.html'
 	});

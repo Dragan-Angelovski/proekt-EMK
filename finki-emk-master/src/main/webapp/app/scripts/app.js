@@ -49,18 +49,22 @@ FirstApp
 				function($rootScope, $http, $cookies, $location, crudService,
 						$cookieStore, UserService, TypeService) {
 
-					var categoryService = crudService('categories');
+				  var categoryService = crudService('categories');
 
-					$rootScope.categ = [];
+          $rootScope.sideNav = {};
+          $rootScope.sideNav.categories = [];
+			    $rootScope.sideNav.catTypes = [];
 
-					$rootScope.categories = categoryService.query(function() {
-						angular.forEach($rootScope.categories, function(val) {
-							$rootScope.categ[val.id] = TypeService
-									.findByCategory({
-										id : val.id
-									});
+				  categoryService.query(function(data) {
+				    console.log(data);
+				    $rootScope.sideNav.categories = data;
+					  angular.forEach($rootScope.sideNav.categories, function(cat) {
+					    TypeService.findByCategory({
+							  id : cat.id
+							}, function(data) {
+							  $rootScope.sideNav.catTypes[cat.id] = data;
+							});
 						});
-						console.log($rootScope.categ);
 					});
 
 					$rootScope.collapseTabs = function(index, status) {
@@ -72,7 +76,7 @@ FirstApp
 						}
 						status[index] = next;
 					}
-					
+
 					$rootScope.navBrowseCategory = function(catId) {
 						$location.path('browse_category/' + catId);
 					};

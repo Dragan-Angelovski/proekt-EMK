@@ -1,25 +1,25 @@
 
 <div class="well">
 	<accordion close-others="true">
-		<accordion-group ng-repeat="cat in categories" is-open="status[$index].open">
+		<accordion-group ng-repeat="cat in sideNav.categories" is-open="status[$index].open">
 			<accordion-heading ng-click="status[$index].open=!status[$index].open">
 				 <div class="row">
 					<a ng-click="navBrowseCategory(cat.id); $event.stopPropagation();"
 						type="button" class="btn btn-primary col-md-10">
 						{{cat.name}}
 					</a>
-						
+
 					<i class="col-md-1 glyphicon" ng-class="{'glyphicon-collapse-up': status[$index].open, 'glyphicon-collapse-down': !status[$index].open}"
 						style="">
 					</i>
 				 </div>
 			</accordion-heading>
-			
-			<a ng-repeat="type in categ[cat.id]" ng-click="navBrowseType(type.id);"
+
+			<a ng-repeat="type in sideNav.catTypes[cat.id]" ng-click="navBrowseType(type.id);"
 			 	type="button" class="btn btn-info btn-block">
 				{{type.name}}
-			</a>	
-		</accordion-group> 
+			</a>
+		</accordion-group>
 </accordion>
 </div>
 
