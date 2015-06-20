@@ -7,34 +7,40 @@
 			<div class="modal-body">
 				<div class="panel">
 					<div class="form-group">
-						<label>Name</label> 
-						<input type="text" class="form-control" ng-model="entity.name" />
+						<label>Name</label> <input type="text" class="form-control"
+							ng-model="entity.name" />
 					</div>
-					
+
 					<div class="form-group">
-						<label>Image</label> 
-						<input type="text" class="form-control" ng-model="entity.imgUrl" />
+						<span class="btn btn-default btn-file"> 
+						<span class="fileinput-new upload-button">
+						<span class="glyphicon glyphicon-upload"></span> Upload Image</span> 
+						<input
+							class="file-upload" type="file"
+							data-ng-file-select="onFileSelect($files)"
+							accept="image/png, image/jpeg, image/jpg">
+						</span>
 					</div>
-					
+
 					<div>
 						<combo combo-type="categories" combo-required="true"
 							combo-label="category" combo-model="entity.category"
 							combo-name="category"> </combo>
 					</div>
-					
+
 					<div>
 						<combo combo-type="types" combo-required="true" combo-label="type"
 							combo-model="entity.type" combo-name="types"> </combo>
 					</div>
-					
+
 					<div class="form-group">
-						<label>Price</label> 
-						<input type="number" class="form-control" ng-model="entity.price" />
+						<label>Price</label> <input type="number" class="form-control"
+							ng-model="entity.price" />
 					</div>
 
 					<div class="form-group">
-						<label>Quantity</label>
-						 <input type="number" class="form-control" ng-model="entity.quantity" />
+						<label>Quantity</label> <input type="number" class="form-control"
+							ng-model="entity.quantity" />
 					</div>
 
 					<div class="form-group">
@@ -46,7 +52,7 @@
 
 				</div>
 			</div>
-			
+
 			<div class="modal-footer">
 				<button class="btn btn-primary" ng-click="ok()">OK</button>
 				<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
