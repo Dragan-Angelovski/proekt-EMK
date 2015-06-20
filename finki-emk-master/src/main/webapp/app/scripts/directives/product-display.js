@@ -20,8 +20,7 @@ FirstApp.directive('productDisplay', [ 'crudService', '$location',
 				controller : function($scope, $element, crudService, $cookies) {
 					var ordersService = crudService('order_items');
 					$scope.display = function() {
-						// treba da se smeni
-						$location.path('/book/details/' + $scope.entity.id);
+						
 					};
 
 					$scope.addToCart = function() {

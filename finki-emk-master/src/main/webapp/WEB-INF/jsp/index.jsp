@@ -158,6 +158,7 @@
 <script src="scripts/directives/book-display.js"></script>
 <script src="scripts/directives/stall-display.js"></script>
 <script src="scripts/directives/product-display.js"></script>
+<script src="scripts/directives/image-display.js"></script>
 <!-- endbuild -->
 
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>

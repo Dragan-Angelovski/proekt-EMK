@@ -10,8 +10,6 @@ public class Seller extends BaseEntity{
 	
 	@OneToOne
 	private User user;
-	
-	
 
 	public User getUser() {
 		return user;

@@ -5,6 +5,4 @@ import mk.ukim.finki.wp.model.User;
 
 public interface SellerRepository extends JpaSpecificationRepository<Seller> {
 
-	
-
 }
