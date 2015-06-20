@@ -1,11 +1,37 @@
-<div class="col-md-12">
-	
-	<h1>Show All Sellers</h1>
-	<table ng-table class="table">
-		<tr ng-repeat="e in entities">
-			<td data-title="'Name'"> {{e.user.fistName}}</td>
-			<td data-title="'Last name'"> {{e.user.lastName}}</td>
-			<td data-title="'Details'"><a ng-href="#/sellers/{{e.id}}">Details</a>
-		</tr>
-	</table>
+<h1>Show All Sellers</h1>
+
+<div class="container">
+<div class="row">
+	<div ng-repeat="e in entities">
+
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-2">
+						<img class="img-rounded" style="width: 100px"
+							ng-src="imgs/seller.png" />
+					</div>
+
+
+					<div class="col-md-4">
+						<dl class="dl-horizontal">
+							<dt>First Name</dt>
+							<dd>{{e.user.fistName}}</dd>
+							<dt>Last Name</dt>
+							<dd>{{e.user.lastName}}</dd>
+							<dt>E-mail</dt>
+							<dd>{{e.user.email}}</dd>
+						</dl>
+						<div class="pull-right">
+						<a ng-href="#/sellers/{{e.id}}">Details</a>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+

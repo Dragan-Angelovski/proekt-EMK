@@ -1,14 +1,23 @@
 <div class="col-md-12">
 	
-	<h1>Show stall detail</h1>
+	<h1>Stall owner details</h1>
 		
-	{{stall}}
-	
-	
+		<dl class="dl-horizontal">
+		<dt>First Name</dt>
+		<dd>{{stall.seller.user.fistName}}</dd>
+		<dt>Last Name</dt>
+		<dd>{{stall.seller.user.lastName}}</dd>
+		<dt>E-mail</dt>
+		<dd>{{stall.seller.user.email}}</dd>
+	</dl>
+
+	<hr/>
 	<div class="row">
 	<h3>Stall products</h3>
 	
 	<div class="row">
+			
 				<product-display ng-repeat="product in products" entity="product"></product-display>
+			
 	</div>
 </div>

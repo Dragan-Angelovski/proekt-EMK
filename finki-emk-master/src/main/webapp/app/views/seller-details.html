@@ -1,10 +1,17 @@
 <div class="col-md-12">
 	
 	<h1>Show seller detail</h1>
-		
-	{{seller}}
-	
-	
+
+	<dl class="dl-horizontal">
+		<dt>First Name</dt>
+		<dd>{{seller.user.fistName}}</dd>
+		<dt>Last Name</dt>
+		<dd>{{seller.user.lastName}}</dd>
+		<dt>E-mail</dt>
+		<dd>{{seller.user.email}}</dd>
+	</dl>
+
+
 	<div class="row">
 	<h3>Seller stalls</h3>
 	
