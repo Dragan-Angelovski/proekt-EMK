@@ -1,8 +1,70 @@
 <div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			{{entity.number}}
-			<a ng-href="#/stalls/{{entity.id}}">Details</a>
-		</div>
-	</div>
+  <style>
+
+    .rectangle {
+      text-align:center;
+      background:blue;
+      height: 100px;
+      color:white;
+      font-size:xx-large;
+    }
+
+    .pillars{
+      height:50px;
+      width:90%;
+      margin-left:5%;
+      border-left: blue solid 5px;
+      border-right: blue solid 5px;
+    }
+
+
+
+    .trapezoid {
+    width: 100%;
+    height: 10px;
+    background: blue;
+    margin: 0;
+    position: relative
+    }
+
+    .trapezoid:before {
+    content: '';
+    line-height: 0;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid blue;
+    border-left: 5px solid transparent;
+    border-right: 5px solid blue;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    }
+
+    .trapezoid:after {
+    content: '';
+    line-height: 0;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid blue;
+    border-left: 5px solid blue;
+    border-right: 5px solid transparent;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    }
+
+  </style>
+  <a ng-href="#/stalls/{{entity.id}}">
+    <div style="margin:15px;" ng-href="#/stalls/{{entity.id}}">
+        <div class="trapezoid"></div>
+        <div class="pillars"></div>
+        <div class="rectangle">
+          {{entity.number}}
+        </div>
+    </div>
+  </a>
 </div>
