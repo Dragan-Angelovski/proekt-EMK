@@ -2,6 +2,7 @@ package mk.ukim.finki.wp.model;
 
 import org.hibernate.search.annotations.*;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Entity;
 @Indexed
 public class Category extends BaseEntity {
 
+    @Column(unique = true, nullable = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String name;
 

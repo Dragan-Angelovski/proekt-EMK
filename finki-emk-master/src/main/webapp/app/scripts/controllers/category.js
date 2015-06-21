@@ -12,6 +12,11 @@ FirstApp.controller('CategoryController', [ '$scope', 'crudService', '$rootScope
 			};
 
 			$scope.save = function() {
+
+			  if(!$scope.entity.name) {
+			    toaster.pop('error', 'Add error', "Category name is empty!");
+			    return;
+			  }
 				categoryService.save($scope.entity, function() {
 					$scope.entity = {};
 
@@ -29,6 +34,17 @@ FirstApp.controller('CategoryController', [ '$scope', 'crudService', '$rootScope
             });
 					});
 					toaster.pop('success', 'Add successful', "Added category.");
+				},
+				function (res) {
+          if (res.status == 500) {
+            // alert('ne moze da se
+            // izbrise!');
+            toaster
+              .pop(
+              'error',
+              'Add error',
+              "Category name already exist!");
+          }
 				});
 			};
 

@@ -20,8 +20,8 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'views/type.html',
 		controller : 'TypeController'
 	});
-    $routeProvider.when('/upload/image').post(upload.postImage);
-    
+   /* $routeProvider.when('/upload/image').post(upload.postImage);*/
+
 	$routeProvider.when('/edit/sellers', {
 		templateUrl : 'views/edit_sellers.html',
 		controller : 'EditSellersController'
@@ -93,10 +93,12 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'BookController'
 	});
 
+/*
 	$routeProvider.when('/search', {
 		templateUrl : 'views/search_results.html',
 		controller : 'SearchController'
 	});
+*/
 
 	$routeProvider.when('/order_items', {
 		templateUrl : 'views/order.html',
