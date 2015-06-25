@@ -20,7 +20,10 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'views/edit_types.html',
 		controller : 'TypeController'
 	});
-   /* $routeProvider.when('/upload/image').post(upload.postImage);*/
+	$routeProvider.when('/upload', {
+    	templateUrl: 'views/test.html',
+    	controller: 'TestController'
+    });
 
 	$routeProvider.when('/edit/sellers', {
 		templateUrl : 'views/edit_sellers.html',

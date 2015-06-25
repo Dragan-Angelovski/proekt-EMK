@@ -146,6 +146,11 @@
 <script src="scripts/controllers/edit_categories.js"></script>
 <script src="scripts/controllers/edit_types.js"></script>
 
+
+<script src="scripts/controllers/testUpload.js"></script>
+
+
+
 <!-- Services definition -->
 <script src="scripts/services/category.js"></script>
 <script src="scripts/services/crud.js"></script>
