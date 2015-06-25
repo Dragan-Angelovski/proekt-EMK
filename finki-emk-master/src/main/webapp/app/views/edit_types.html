@@ -1,53 +1,60 @@
-<div class="row">
-	<div class="col-md-6">
-		<div class="panel top-buffer">
-			<h2>Type of Product</h2>
-			<div>
-				<label>Name</label>
-				<input type="text" 
-						class="form-control" 
-						ng-model="entity.name" />
-			</div>
-			<div>
-				<combo combo-type="categories" combo-required="true"
-						combo-label="category"
-						combo-model="entity.category"
-						combo-name="category">
-				</combo>
-			</div>
-			
-			
-			<button ng-click="save()">
-				<i class="glyphicon glyphicon-save"></i>
-				Save
-			</button>
-			
-		</div>
-	</div>
-		
-	
-	<div class="col-md-6">
-		<h2>All Types </h2>
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Category</th>
-				<th>Action</th> 
-			</tr>
-			<!-- one tr element for each grade -->
-			<tr ng-repeat="e in entities">
-				<td>{{ e.name }}</td>
-				<td>{{ e.category.name }}</td>
-				<td>
-					<button ng-click="edit(e.id)" class="btn btn-success btn-xs">
-						<i class="glyphicon glyphicon-plus"></i> Edit
-					</button>
-					<button ng-click="remove(e.id)" class="btn btn-danger btn-xs">
-						<i class="glyphicon glyphicon-minus"></i>
-						Remove
-					</button>
-				</td>
-			</tr>
-		</div>
-	</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+      <h2>Type</h2>
+
+      <form ng-submit="save()">
+        <div class="form-group">
+          <label for="type">Name</label>
+          <input id="type" type="text" class="form-control"  ng-model="entity.name" />
+        </div>
+        <div class="form-group">
+
+          <combo combo-label="In categories" combo-type="categories" combo-required="true"
+                 combo-model="entity.category"
+                 combo-name="category">
+          </combo>
+            </div>
+          <div class="form-group">
+          <button class="btn btn-success" type="submit">
+            <i class="glyphicon glyphicon-save"></i> Save
+          </button>
+            </div>
+
+
+      </form>
+
+    </div>
+
+
+    <div class="col-md-6">
+      <h2>All Types</h2>
+      <table class="table table-striped">
+        <thead>
+        <tr class="info">
+          <th>Name</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- one tr element for each grade -->
+        <tr ng-repeat="e in entities">
+          <td>{{ e.name }}</td>
+          <td>{{ e.category.name}}</td>
+          <td>
+            <button ng-click="edit(e.id)" class="btn btn-info btn-xs">
+              <i class="glyphicon glyphicon-edit"></i> Edit
+            </button>
+            <button ng-click="remove(e.id, e.category.id)" class="btn btn-danger btn-xs">
+              <i class="glyphicon glyphicon-remove"></i> Remove
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 </div>

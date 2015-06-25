@@ -1,6 +1,6 @@
 /*
  * Directive for generic combo (select)
- * 
+ *
  */
 
 FirstApp.directive('combo', [
@@ -30,7 +30,7 @@ FirstApp.directive('combo', [
           onChange: '=',
           primitive: '=',
           multiple: '=',
-          afterInit: '=', 
+          afterInit: '=',
           allowClear: '='
         },
         compile: function(tElem, attrs) {

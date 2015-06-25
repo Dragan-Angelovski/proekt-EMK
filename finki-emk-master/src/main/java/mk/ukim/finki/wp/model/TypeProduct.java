@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.model;
 
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import org.hibernate.search.annotations.Store;
 @Entity
 @Table(name = "types")
 public class TypeProduct extends BaseEntity {
-
+	@Column(unique = true, nullable = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 	
