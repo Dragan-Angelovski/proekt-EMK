@@ -125,7 +125,6 @@
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/city.js"></script>
 <script src="scripts/controllers/country.js"></script>
-<script src="scripts/controllers/category.js"></script>
 <script src="scripts/controllers/book.js"></script>
 <script src="scripts/controllers/product.js"></script>
 <script src="scripts/controllers/login.js"></script>
@@ -141,9 +140,11 @@
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/order.js"></script>
 <script src="scripts/controllers/language.js"></script>
-<script src="scripts/controllers/type.js"></script>
 <script src="scripts/controllers/display-seller.js"></script>
 <script src="scripts/controllers/product-detail.js"></script>
+
+<script src="scripts/controllers/edit_categories.js"></script>
+<script src="scripts/controllers/edit_types.js"></script>
 
 <!-- Services definition -->
 <script src="scripts/services/category.js"></script>

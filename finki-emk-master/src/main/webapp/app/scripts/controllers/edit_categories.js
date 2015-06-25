@@ -17,7 +17,15 @@ FirstApp.controller('CategoryController', [ '$scope', 'crudService', '$rootScope
 			    toaster.pop('error', 'Add error', "Category name is empty!");
 			    return;
 			  }
+
+        //capitalize first letter
+        var name = $scope.entity.name;
+        name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        $scope.entity.name = name;
+
+
 				categoryService.save($scope.entity, function() {
+
 					$scope.entity = {};
 
 					categoryService.query(function(data) {

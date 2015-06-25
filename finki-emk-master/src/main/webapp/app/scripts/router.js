@@ -16,8 +16,8 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'MainCtrl'
 	});
 
-	$routeProvider.when('/types', {
-		templateUrl : 'views/type.html',
+	$routeProvider.when('/admin/types', {
+		templateUrl : 'views/edit_types.html',
 		controller : 'TypeController'
 	});
    /* $routeProvider.when('/upload/image').post(upload.postImage);*/
@@ -47,7 +47,7 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 	});
 
 	$routeProvider.when('/admin/categories', {
-		templateUrl : 'views/category.html',
+		templateUrl : 'views/edit_categories.html',
 		controller : 'CategoryController'
 	});
 
