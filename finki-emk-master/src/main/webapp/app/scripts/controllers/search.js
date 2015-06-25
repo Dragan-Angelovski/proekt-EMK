@@ -6,8 +6,8 @@ FirstApp.controller('SearchController', [
   '$scope',
   '$routeParams',
   '$location',
-  'BookService',
-  function ($scope, $routeParams, $location, BookService) {
+  'ProductService',
+  function ($scope, $routeParams, $location, ProductService) {
     $scope.search = function () {
       $location.path("/search").search({
         text: $scope.searchField
@@ -15,7 +15,7 @@ FirstApp.controller('SearchController', [
     };
 
     if ($routeParams.text) {
-      $scope.entities = BookService.search({
+      $scope.entities = ProductService.search({
         text: $routeParams.text
       });
     }

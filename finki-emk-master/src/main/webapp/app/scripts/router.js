@@ -93,12 +93,12 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'BookController'
 	});
 
-/*
+
 	$routeProvider.when('/search', {
 		templateUrl : 'views/search_results.html',
 		controller : 'SearchController'
 	});
-*/
+
 
 	$routeProvider.when('/order_items', {
 		templateUrl : 'views/order.html',

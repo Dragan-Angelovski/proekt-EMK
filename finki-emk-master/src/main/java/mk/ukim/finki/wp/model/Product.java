@@ -6,13 +6,36 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.apache.lucene.analysis.charfilter.HTMLStripCharFilterFactory;
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.standard.StandardTokenizerFactory;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.AnalyzerDef;
+import org.hibernate.search.annotations.CharFilterDef;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.TokenFilterDef;
+import org.hibernate.search.annotations.TokenizerDef;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "products")
+@Indexed
+@AnalyzerDef(name = "customAnalyser",
+        charFilters = {
+                @CharFilterDef(factory = HTMLStripCharFilterFactory.class)
+        },
+        tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
+        filters = {
+                @TokenFilterDef(factory = LowerCaseFilterFactory.class)
+        })
 public class Product extends BaseEntity {
 
-	@NotEmpty	
+	@NotEmpty
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String name;
 
 	private double price;
@@ -46,9 +69,11 @@ public class Product extends BaseEntity {
 	}
 
 	@Column(length = 1000)
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String description;
 	
 	@ManyToOne
+	@IndexedEmbedded
 	private Category category;
 	
 	@ManyToOne
