@@ -42,7 +42,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="page-container">
+<div class="container-fluid">
   <div ng-include="'nav/top.html'"></div>
 
 
@@ -165,6 +165,7 @@
 <script src="scripts/directives/combo.js"></script>
 <script src="scripts/directives/book-display.js"></script>
 <script src="scripts/directives/stall-display.js"></script>
+<script src="scripts/directives/seller-display.js"></script>
 <script src="scripts/directives/product-display.js"></script>
 <!-- endbuild -->
 
