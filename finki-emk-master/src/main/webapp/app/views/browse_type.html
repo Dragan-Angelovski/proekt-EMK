@@ -1,14 +1,11 @@
-<div class="container">
-<div class="row">
+<div class="container-fluid">
+  <div class="row">
 
-
-  <div class="col-md-10">
-    <h2>Products from type {{type.name}} </h2>
-
-    <!-- one tr element for each grade -->
-    <div class="row" ng-repeat="e in entities">
-      <product-display entity="e" shopping-cart="true"></product-display>
+    <div class="col-md-12">
+      <h2>Products from type {{type.name}} </h2>
     </div>
+
+    <product-display ng-repeat="e in entities" entity="e" shopping-cart="true"></product-display>
+
   </div>
-</div>
 </div>
