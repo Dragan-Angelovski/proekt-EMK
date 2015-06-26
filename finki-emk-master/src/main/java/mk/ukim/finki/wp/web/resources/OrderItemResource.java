@@ -39,6 +39,7 @@ public class OrderItemResource extends
 
   @RequestMapping(value = "/my", method = RequestMethod.GET, produces = "application/json")
   public List<OrderItem_GreenMarket> myOrderItems(HttpServletRequest request) {
+    System.out.println("~~~~~~~~~"+tempToken(request));
       return  service.findByUserToken(tempToken(request));
   }
 

@@ -18,7 +18,7 @@ FirstApp.directive('productDisplay', [ 'crudService', '$location',
 					};
 				},
 				controller : function($scope, $element, crudService, $cookies) {
-					var ordersService = crudService('products');
+					var ordersService = crudService('order_items');
 					$scope.display = function() {
 						$location.path('/product/details/' + $scope.entity.id);
 					};

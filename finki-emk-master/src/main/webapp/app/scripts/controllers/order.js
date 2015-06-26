@@ -7,7 +7,7 @@ FirstApp.controller('OrderController',
 
       $scope.totalPayment = 0;
 
-      $scope.entities = Order.getMyOrders(function() {
+      $scope.entities = Order.getMyOrders(function(data) {
         for(var i = 0; i < $scope.entities.length; i++) {
           $scope.totalPayment += $scope.entities[i].product.price;
         }

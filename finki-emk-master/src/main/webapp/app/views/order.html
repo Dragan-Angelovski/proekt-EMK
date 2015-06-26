@@ -1,16 +1,21 @@
-<div class="row">
 
-  <div class="row" ng-repeat="e in entities">
-    <product-display class="col-md-8" entity="e.product"></product-display>
-  </div>
+<div class="container-fluid">
+  <div class="row">
 
-  <div class="col-xs-3 col-xs-offset-6 panel">
-    <div class="panel-body">
-      <div class="">
-        <strong>Total: {{totalPayment}}</strong>
-        <button type="button" class="btn btn-primary" ng-click="pay()">Pay</button>
+    <div class="col-md-12">
+      <h2>Products in shopping cart </h2>
+    </div>
+
+    <product-display ng-repeat="e in entities" entity="e.product" shopping-cart="false"></product-display>
+
+    <div class="col-xs-3 col-xs-offset-6 panel">
+      <div class="panel-body">
+        <div class="">
+          <strong>Total: {{totalPayment}}</strong>
+          <button type="button" class="btn btn-primary" ng-click="pay()">Pay</button>
+        </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
