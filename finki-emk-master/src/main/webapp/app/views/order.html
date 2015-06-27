@@ -5,9 +5,7 @@
     <div class="col-md-12">
       <h2>Products in shopping cart </h2>
     </div>
-
-    <product-display ng-repeat="e in entities" entity="e.product" shopping-cart="false"></product-display>
-
+        <product-display ng-repeat="e in entities" entity="e.product" order-id="e.id " remove-from-cart="remove(orderId)" remove-btn="true" shopping-cart="false"></product-display>
     <div class="col-xs-3 col-xs-offset-6 panel">
       <div class="panel-body">
         <div class="">

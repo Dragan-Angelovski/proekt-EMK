@@ -3,13 +3,16 @@
  *
  */
 
-FirstApp.directive('productDisplay', [ 'crudService', '$location',
-		function(crudService, $location) {
+FirstApp.directive('productDisplay', [ 'crudService', '$location', 'toaster',
+		function(crudService, $location, toaster) {
 			return {
 				restrict : 'AE',
 				scope : {
 					entity : '=',
-					shoppingCart : '='
+					orderId: '=',
+					shoppingCart : '=',
+					removeBtn: '=',
+					removeFromCart: '&'
 				},
 				compile : function(tElem, attrs) {
 
@@ -28,8 +31,12 @@ FirstApp.directive('productDisplay', [ 'crudService', '$location',
 							product : {
 								id : $scope.entity.id
 							}
+						}, function() {
+							toaster.pop('success', 'Add successful', "Added "+$scope.entity.name +" to cart.");
 						});
 					}
+
+					$scope.id = {id : $scope.orderId };
 				},
 				templateUrl : 'directives/product-display.html'
 			};
