@@ -1,38 +1,91 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="col-md-12">
 
-		<h1>Product details</h1>
 		<div class="row">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3>{{product.name}}</h3>
+				</div>
 
-			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="col-md-4">
-						<img class="img-rounded" style="width: 100px"
+						<img class="img-rounded" style="width: 250px"
 							ng-src="imgs/products/{{product.imgUrl}}" />
 
 					</div>
 					<div class="col-md-8">
-						<dl class="dl-horizontal">
-							<dt>Product Name</dt>
-							<dd>{{product.name}}</dd>
-							<dt>Product Category</dt>
-							<dd>{{product.category.name}}</dd>
-							<dt>Product Type</dt>
-							<dd>{{product.type.name}}</dd>
-							<dt>Product Price</dt>
-							<dd>{{product.price}}</dd>
-							<dt>Product Description</dt>
-							<dd>{{product.description}}</dd>
-							<dt>Product is on stall</dt>
-							<dd>{{product.stall.number}}</dd>
-							<dt>Stall owner</dt>
-							<dd>{{product.stall.seller.user.fistName}}
-								{{product.stall.seller.user.lastName}}</dd>
-						</dl>
+
+						<div class="row">
+							<h3>
+								<b>Product Description</b>
+							</h3>
+							<p>{{product.description}}</p>
+						</div>
+						<hr>
+
+						<div class="row">
+							<div class="col-md-4">
+								<h4>
+									<b>Category</b>
+								</h4>
+							</div>
+							<div class="col-md-8">
+							<a ng-href="#/browse_category/{{product.category.id}}">
+								<h4>{{product.category.name}}</h4></a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+
+								<h4>
+									<b>Type</b>
+								</h4>
+							</div>
+							<div class="col-md-8">
+								<a ng-href="#/browse_type/{{product.type.id}}">
+									<h4>{{product.type.name}}</h4>
+								</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<h4>
+									<b>Price</b>
+								</h4>
+							</div>
+							<div class="col-md-8">
+								<h4>{{product.price}}</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<h4>
+									<b>Product is on stall</b>
+								</h4>
+							</div>
+							<div class="col-md-8">
+								<a ng-href="#/stalls/{{product.stall.id}}">
+									<h4>{{product.stall.number}}</h4>
+								</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<h4>
+									<b>Stall owner</b>
+								</h4>
+							</div>
+							<div class="col-md-8">
+								<a ng-href="#/sellers/{{product.stall.seller.id}}">
+									<h4>{{product.stall.seller.user.fistName}}
+										{{product.stall.seller.user.lastName}}</h4>
+								</a>
+							</div>
+						</div>
 
 					</div>
-
 				</div>
+
 			</div>
 		</div>
 	</div>
