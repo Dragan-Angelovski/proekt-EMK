@@ -36,18 +36,27 @@ FirstApp.config([ '$translateProvider', '$httpProvider', 'settings',
 
 		} ]);
 
-FirstApp
-		.run([
-				'$rootScope',
-				'$http',
-				'$cookies',
-				'$location',
-				'crudService',
-				'$cookieStore',
-				'UserService',
-				'TypeService',
-				function($rootScope, $http, $cookies, $location, crudService,
-						$cookieStore, UserService, TypeService) {
+FirstApp.run
+([
+	'$rootScope',
+	'$http',
+	'$cookies',
+	'$location',
+	'crudService',
+	'$cookieStore',
+	'UserService',
+	'TypeService',
+	'Order',
+	function($rootScope, $http, $cookies, $location, crudService,
+						$cookieStore, UserService, TypeService, Order) {
+
+
+		Order.getMyOrders(function(data) {
+			$rootScope.numCartItems = data.length;
+        });
+
+
+
 
 				  var categoryService = crudService('categories');
 
@@ -56,7 +65,6 @@ FirstApp
 			    $rootScope.sideNav.catTypes = [];
 
 				  categoryService.query(function(data) {
-				    console.log(data);
 				    $rootScope.sideNav.categories = data;
 					  angular.forEach($rootScope.sideNav.categories, function(cat) {
 					    TypeService.findByCategory({
@@ -114,4 +122,5 @@ FirstApp
 										});
 					}
 
-				} ]);
+	}
+]);

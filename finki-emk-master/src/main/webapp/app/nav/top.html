@@ -15,7 +15,10 @@
 				<li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>
 				<li ng-class="{ active: isActive('/stalls')}"><a ng-href="#/stalls">Stalls</a></li>
 				<li ng-class="{ active: isActive('/sellers')}"><a ng-href="#/sellers">Sellers</a></li>
-				<li ng-class="{ active: isActive('/order_items')}"><a ng-href="#/order_items">Shopping Cart</a></li>
+				<li ng-class="{ active: isActive('/order_items')}"><a ng-href="#/order_items">
+					<i class="glyphicon glyphicon-shopping-cart"></i>
+					<span class="badge">{{numCartItems}}</span>Shopping Cart
+				</a></li>
         <br/>
 				<!-- Treba da se smenat -->
         <li><a>Admin:</a></li>

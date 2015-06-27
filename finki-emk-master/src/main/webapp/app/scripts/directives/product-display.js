@@ -3,8 +3,8 @@
  *
  */
 
-FirstApp.directive('productDisplay', [ 'crudService', '$location', 'toaster',
-		function(crudService, $location, toaster) {
+FirstApp.directive('productDisplay', [ 'crudService', '$location', 'toaster', '$rootScope',
+		function(crudService, $location, toaster, $rootScope) {
 			return {
 				restrict : 'AE',
 				scope : {
@@ -32,7 +32,8 @@ FirstApp.directive('productDisplay', [ 'crudService', '$location', 'toaster',
 								id : $scope.entity.id
 							}
 						}, function() {
-							toaster.pop('success', 'Add successful', "Added "+$scope.entity.name +" to cart.");
+							toaster.pop('info', 'Add successful', "Added "+$scope.entity.name +" to cart.");
+							$rootScope.numCartItems++;
 						});
 					}
 

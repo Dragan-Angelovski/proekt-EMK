@@ -4,7 +4,8 @@ FirstApp.controller('OrderController',
 	'Order',
 	'$location',
 	'toaster',
-	function($scope, Order, $location, toaster) {
+	'$rootScope',
+	function($scope, Order, $location, toaster, $rootScope) {
 
 		$scope.totalPayment = 0;
 
@@ -25,14 +26,16 @@ FirstApp.controller('OrderController',
 			});
 		}
 
-		$scope.remove = function (id) {
-			console.log("Remove: "+id);
+		$scope.remove = function (id, index) {
+			console.log("Index:"+index);
 			Order.remove(
 			{
 				id: id
 			},
 			function () {
-				getOrders();
+				$scope.entities.splice(index,1);
+				$rootScope.numCartItems -= 1;
+				toaster.pop('info', 'Remove successful', "Removed product from cart.");
 			},
 			function (res) {
 				if (res.status == 500) {
