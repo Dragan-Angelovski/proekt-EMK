@@ -33,6 +33,7 @@ FirstApp.controller('OrderController',
 				id: id
 			},
 			function () {
+				$scope.totalPayment -= $scope.entities[index].product.price;
 				$scope.entities.splice(index,1);
 				$rootScope.numCartItems -= 1;
 				toaster.pop('info', 'Remove successful', "Removed product from cart.");
