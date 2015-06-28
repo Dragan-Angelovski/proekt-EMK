@@ -1,21 +1,36 @@
 <div class="container-fluid">
-	<div class="row" style="background-color:lightblue;">
-		<div class="col-md-3 col-md-offset-1">
-			<h1>Stall #{{stall.number}} </h1>
-		</div>
-		<div class="col-md-8">
-			<h1>Seller: <a ng-href="#/sellers/{{stall.seller.id}}">{{stall.seller.user.fistName}} {{stall.seller.user.lastName}} </a></h1>
-		</div>
-	</div>
-	<hr/>
-	<div class="row" style="background-color:lightgreen;">
-		<div col-md-12>
-		<h3 style="text-align:center;">Products</h3>
-			<div class="container-fluid">
-				<div class="row" >
-					<product-display ng-repeat="product in products" entity="product" shopping-cart="true"></product-display>
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-md-3 col-md-offset-1">
+					<h1>Stall #{{stall.number}}</h1>
+				</div>
+				<div class="col-md-8">
+					<h1>
+						Seller: <a ng-href="#/sellers/{{stall.seller.id}}">{{stall.seller.user.fistName}}
+							{{stall.seller.user.lastName}} </a>
+					</h1>
 				</div>
 			</div>
 		</div>
+
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12" style="background-color: lightgreen;">
+					<h3 style="text-align: center;">Products</h3>
+					<div class="container-fluid">
+						<div class="row">
+							<product-display ng-repeat="product in products" entity="product"
+								shopping-cart="true"></product-display>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
+
 </div>
+
+
