@@ -1,0 +1,60 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+
+			<h2>Stall</h2>
+
+			<form ng-submit="save()">
+				<div class="form-group">
+					<label for="stall">Number</label>
+					<input id="stall" type="text" class="form-control"  ng-model="entity.number" />
+				</div>
+				<div class="form-group">
+
+					<combo combo-label="Sellers" combo-type="sellers" combo-required="true"
+						   combo-model="entity.seller" render-item="renderSeller" render-selected="renderSelected"
+						   combo-name="sellers">
+					</combo>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" type="submit">
+						<i class="glyphicon glyphicon-save"></i> Save
+					</button>
+				</div>
+
+
+			</form>
+
+		</div>
+
+
+		<div class="col-md-6">
+			<h2>All Stalls</h2>
+			<table class="table table-striped">
+				<thead>
+				<tr class="info">
+					<th>Number</th>
+					<th>Seller</th>
+					<th>Action</th>
+				</tr>
+				</thead>
+				<tbody>
+				<!-- one tr element for each grade -->
+				<tr ng-repeat="e in entities">
+					<td>{{ e.number }}</td>
+					<td>{{ e.seller.user.fistName}} {{e.seller.user.lastName}}</td>
+					<td>
+						<button ng-click="edit(e.id)" class="btn btn-info btn-xs">
+							<i class="glyphicon glyphicon-edit"></i> Edit
+						</button>
+						<button ng-click="remove(e.id, e.category.id)" class="btn btn-danger btn-xs">
+							<i class="glyphicon glyphicon-remove"></i> Remove
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>

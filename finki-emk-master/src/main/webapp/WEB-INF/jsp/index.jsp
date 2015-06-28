@@ -145,6 +145,7 @@
 
 <script src="scripts/controllers/edit_categories.js"></script>
 <script src="scripts/controllers/edit_types.js"></script>
+<script src="scripts/controllers/edit_stalls.js"></script>
 
 
 <script src="scripts/controllers/testUpload.js"></script>

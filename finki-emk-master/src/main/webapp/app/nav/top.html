@@ -10,6 +10,7 @@
 			<a class="navbar-brand" href="#">Green Market</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse" ng-controller="HeaderController">
+
 			<ul class="nav navbar-nav">
 
 				<li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>
@@ -19,16 +20,9 @@
 					<i class="glyphicon glyphicon-shopping-cart"></i>
 					<span class="badge">{{numCartItems}}</span>Shopping Cart
 				</a></li>
-        <br/>
-				<!-- Treba da se smenat -->
-        <li><a>Admin:</a></li>
-				<li ng-class="{ active: isActive('/products')}"><a ng-href="#/products">Products</a></li>
-				<li ng-class="{ active: isActive('/admin/types')}"><a ng-href="#/admin/types">Edit Types</a></li>
-				<li ng-class="{ active: isActive('/admin/categories')}"><a ng-href="#/admin/categories">Edit Category</a></li>
+				</ul>
 
 
-
-			</ul>
 			<ul class="nav nav-pills pull-right">
 				<!-- Search form -->
 				<form class="navbar-form navbar-left" role="search"
@@ -60,6 +54,17 @@
 						{{$root.user.username}}
 				</a></li>
 			</ul>
+			<div class="row">
+				<ul class="nav navbar-nav">
+					<!-- Treba da se smenat -->
+					<li><a>Admin:</a></li>
+					<li ng-class="{ active: isActive('/products')}"><a ng-href="#/products">Edit Products</a></li>
+					<li ng-class="{ active: isActive('/admin/types')}"><a ng-href="#/admin/types">Edit Types</a></li>
+					<li ng-class="{ active: isActive('/admin/categories')}"><a ng-href="#/admin/categories">Edit Category</a></li>
+					<li ng-class="{ active: isActive('/admin/stalls')}"><a ng-href="#/admin/stalls">Edit Stalls</a></li>
+					<li ng-class="{ active: isActive('/admin/sellers')}"><a ng-href="#/admin/sellers">Edit Sellers</a></li>
+				</ul>
+			</div>
 		</div>
 		<!--/.nav-collapse -->
 	</div>

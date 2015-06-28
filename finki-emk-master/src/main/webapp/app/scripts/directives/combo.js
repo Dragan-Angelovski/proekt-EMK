@@ -74,6 +74,7 @@ FirstApp.directive('combo', [
           // Function for highlighting the meching when
           // searching
           $scope.markMatch = function(text, query, escapeMarkup) {
+            console.log("TextTT:"+text);
             var markMatch = window.Select2.util.markMatch;
             var markup = [];
             if (query.term) {
@@ -86,13 +87,16 @@ FirstApp.directive('combo', [
 
           // Function that returns the item display
           $scope.formatItem = function(item, container, query, escapeMarkup) {
-            var val = item[property] || item;
-            var markedText = $scope.markMatch(val, query, escapeMarkup);
+
+            var markedText = "";
             if (typeof $scope.renderItem === 'function') {
-              return $scope.renderItem(val, markedText, item);
+                var val = $scope.renderItem("", markedText, item);
+                var markedText = $scope.markMatch(val, query, escapeMarkup);
             } else {
-              return markedText;
+                var val = item[property] || item;
+                var markedText = $scope.markMatch(val, query, escapeMarkup);
             }
+             return markedText;
           };
 
           // function for displaying the selected item
@@ -124,8 +128,13 @@ FirstApp.directive('combo', [
                       || item[groupProp][groupNameProp].toUpperCase().indexOf(
                               term.toUpperCase()) >= 0;
             } else {
-              var val = item[property] || item;
-              return val.toUpperCase().indexOf(term.toUpperCase()) >= 0;
+                var val = "";
+                if (typeof $scope.renderItem === 'function') {
+                    val = item['user']['fistName']+" "+item['user']['lastName'];
+                } else {
+                    var val = item[property] || item;
+                }
+                return val.toUpperCase().indexOf(term.toUpperCase()) >= 0;
             }
           };
 

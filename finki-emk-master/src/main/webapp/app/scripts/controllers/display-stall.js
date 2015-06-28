@@ -1,29 +1,20 @@
-FirstApp.controller('DisplayStallsController', [ '$scope', 'crudService',
-		function($scope, crudService) {
+FirstApp.controller('DisplayStallsController',
+[
+	'$scope', 'crudService',
+	function($scope, crudService) {
+		var StallService = crudService('stalls');
 
-      var StallService = crudService('stalls');
-			$scope.entities = StallService.query();
-			$scope.entity = {};
+        function compare(a,b) {
+			if (a.number < b.number)
+			return -1;
+			if (a.number > b.number)
+			return 1;
+			return 0;
+		}
 
-			$scope.edit = function(id) {
-				$scope.entity = StallService.get({
-					id : id
-				});
-			};
-
-			$scope.save = function() {
-				StallService.save($scope.entity, function(data) {
-					$scope.entity = {};
-					$scope.entities = StallService.query();
-				});
-			};
-
-			$scope.remove = function(id) {
-				StallService.remove({
-					id : id
-				}, function() {
-					$scope.entities = StallService.query();
-				});
-			};
-
-		} ]);
+		StallService.query(function(data) {
+			$scope.entities = data;
+			$scope.entities.sort(compare);
+		});
+	}
+]);

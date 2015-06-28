@@ -21,7 +21,7 @@ FirstApp.controller('TypeController',
         function loadTypes() {
             service.query(function(data) {
             $scope.entities = data;
-            $scope.entities = $scope.entities.sort(compare);
+            $scope.entities.sort(compare);
             });
         }
 

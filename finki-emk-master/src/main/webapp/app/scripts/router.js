@@ -25,10 +25,9 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
     	controller: 'TestController'
     });
 
-	$routeProvider.when('/edit/sellers', {
-		templateUrl : 'views/edit_sellers.html',
-		controller : 'EditSellersController'
-	});
+
+
+
 
 	$routeProvider.when('/sellers', {
 		templateUrl : 'views/display_sellers.html',
@@ -39,6 +38,11 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'views/seller-details.html',
 		controller : 'DetailSellerController'
 	});
+
+	$routeProvider.when('/stalls', {
+    		templateUrl : 'views/display_stalls.html',
+    		controller : 'DisplayStallsController'
+    	});
 
 	$routeProvider.when('/stalls/:id', {
 		templateUrl : 'views/stall-details.html',
@@ -54,10 +58,15 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'CategoryController'
 	});
 
+	$routeProvider.when('/admin/sellers', {
+        templateUrl : 'views/edit_sellers.html',
+        controller : 'EditSellersController'
+    });
+
 	// pateka za listanje na site tezgi
-	$routeProvider.when('/stalls', {
-		templateUrl : 'views/display_stalls.html',
-		controller : 'DisplayStallsController'
+	$routeProvider.when('/admin/stalls', {
+		templateUrl : 'views/edit_stalls.html',
+		controller : 'EditStallsController'
 	});
 
 	$routeProvider.when('/products/:id?', {
