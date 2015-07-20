@@ -14,4 +14,5 @@ FirstApp.controller('MainCtrl', ['$scope', 'crudService',
   function ($scope, crudService) {
 	var service = crudService('products');
 	$scope.products = service.query();
+	
   }]);

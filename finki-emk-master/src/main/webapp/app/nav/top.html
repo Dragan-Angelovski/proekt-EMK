@@ -55,9 +55,10 @@
 				</a></li>
 			</ul>
 			<div class="row">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav" ng-if="$root.user.role === 'ROLE_ADMIN'">
 					<!-- Treba da se smenat -->
 					<li><a>Admin:</a></li>
+					
 					<li ng-class="{ active: isActive('/products')}"><a ng-href="#/products">Edit Products</a></li>
 					<li ng-class="{ active: isActive('/admin/types')}"><a ng-href="#/admin/types">Edit Types</a></li>
 					<li ng-class="{ active: isActive('/admin/categories')}"><a ng-href="#/admin/categories">Edit Category</a></li>
