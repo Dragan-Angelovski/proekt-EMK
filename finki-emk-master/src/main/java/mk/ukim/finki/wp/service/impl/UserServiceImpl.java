@@ -6,6 +6,7 @@ import mk.ukim.finki.wp.repository.OrderItemRepository;
 import mk.ukim.finki.wp.repository.UserRepository;
 import mk.ukim.finki.wp.service.OrderItemService;
 import mk.ukim.finki.wp.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +14,23 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl extends
-  BaseEntityCrudServiceImpl<User, UserRepository> implements
-  UserService {
+		BaseEntityCrudServiceImpl<User, UserRepository> implements UserService {
 
-  @Autowired
-  private UserRepository repository;
+	@Autowired
+	private UserRepository repository;
 
-  @Override
-  protected UserRepository getRepository() {
-    return repository;
-  }
+	@Override
+	protected UserRepository getRepository() {
+		return repository;
+	}
 
-  @Override
-  public User findByUsername(String username) {
-    return repository.findByUsername(username);
-  }
+	@Override
+	public User findByUsername(String username) {
+		return repository.findByUsername(username);
+	}
+
+	@Override
+	public User findById(Long id) {
+		return repository.findById(id);
+	}
 }

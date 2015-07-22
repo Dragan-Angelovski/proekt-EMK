@@ -110,5 +110,13 @@ public class UserResource {
     }
     return null;
   }
+  
+  @RequestMapping(value= "/users", method = RequestMethod.GET, produces = "application/json")
+  @ResponseBody
+  public User getUser(Long id){
+	  User user = service.findById(id);
+	  
+	  return user;
+  }
 
 }

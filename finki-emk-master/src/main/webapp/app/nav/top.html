@@ -47,12 +47,20 @@
 								translate="generic.{{l.name}}"></span></a></li>
 
 					</ul></li>
-
-				<li><a ng-href="#/login" ng-if="!$root.user">Login</a> <a
-					ng-click="logout()" ng-if="$root.user" class="clickable"
-					title="logout"> <i class="fa fa-fw fa-sign-out"></i>
-						{{$root.user.username}}
-				</a></li>
+				
+				<li><a ng-href="#/login" ng-if="!$root.user">Login</a></li>
+					
+					<li class="dropdown" ng-if="$root.user">
+					  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{$root.user.username}}
+					  <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					    <li><a ng-click="" class="clickable"> 
+					    	<i class="glyphicon glyphicon-user"></i> Profile </a></li>
+					    <li><a ng-click="logout()" class="clickable" tittle="logout"> 
+					    	<i class="glyphicon glyphicon-off"></i>Logout</a></li>
+					  </ul>
+					</li>
+			
 			</ul>
 			<div class="row">
 				<ul class="nav navbar-nav" ng-if="$root.user.role === 'ROLE_ADMIN'">

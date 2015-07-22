@@ -8,4 +8,6 @@ import java.util.List;
 public interface UserService extends BaseEntityCrudService<User> {
 
   User findByUsername(String username);
+  
+  User findById(Long id);
 }

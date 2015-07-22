@@ -1,9 +1,11 @@
 package mk.ukim.finki.wp.web.resources;
 
-import java.io.BufferedOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,7 @@ public class testController {
         String name = file.getOriginalFilename();
         String imgDestination= "src/main/webapp/app/imgs/products/";
         if (!file.isEmpty()) {
-        	try{
+        	/*try{
              bytes = file.getBytes();
              File f = new File(imgDestination+name);
              System.out.println(f.getAbsolutePath());
@@ -34,10 +36,16 @@ public class testController {
              return "You successfully uploaded " + name + "!";
          } catch (Exception e) {
              return "You failed to upload " + name + " => " + e.getMessage();
-         }
+         }*/
+        	
+        	BufferedImage img = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
+        	File destination = new File(imgDestination+name);
+        	ImageIO.write(img, "png", destination);
+        	
+        	return "You successfully uploaded " + name + "!";
      } else {
          return "You failed to upload " + name + " because the file was empty.";
      }
     }
-
+	
 }

@@ -99,14 +99,6 @@ FirstApp.run
 							$rootScope.user = u;
 						});
 					}
-					/*$rootScope.userRole = function(userRole){
-						$rootScope.role;
-						console.log(userRole);
-						if(userRole == "ROLE_ADMIN")
-							$rootScope.role = true;
-						else
-							$rootScope.role = false;
-					}*/
 
 					$rootScope.logout = function() {
 						delete $rootScope.user;

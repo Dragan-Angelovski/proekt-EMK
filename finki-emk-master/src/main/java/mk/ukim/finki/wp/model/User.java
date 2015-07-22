@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class User extends BaseEntity {
 
 	public static enum Role {
-		ROLE_USERS, ROLE_STUDENT, ROLE_PROFESSOR, ROLE_ADMIN
+		ROLE_USERS, ROLE_SELLERS , ROLE_ADMIN
 	}
 
 	private String fistName;
