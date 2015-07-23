@@ -111,11 +111,10 @@ public class UserResource {
     return null;
   }
   
-  @RequestMapping(value= "/users", method = RequestMethod.GET, produces = "application/json")
+  @RequestMapping(value= "/users/{username}", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody
-  public User getUser(Long id){
-	  User user = service.findById(id);
-	  
+  public User getUser(@PathVariable("username") String username){
+	  User user = service.findByUsername(username);
 	  return user;
   }
 

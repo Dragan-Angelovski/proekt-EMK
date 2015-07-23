@@ -54,8 +54,9 @@
 					  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{$root.user.username}}
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					    <li><a ng-click="" class="clickable"> 
-					    	<i class="glyphicon glyphicon-user"></i> Profile </a></li>
+					    <li><a ng-href="#/profile/{{$root.user.username}}" class="clickable"> 
+					    	<i class="glyphicon glyphicon-user"></i> Profile </a>
+					    	</li>
 					    <li><a ng-click="logout()" class="clickable" tittle="logout"> 
 					    	<i class="glyphicon glyphicon-off"></i>Logout</a></li>
 					  </ul>

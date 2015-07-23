@@ -137,6 +137,7 @@
 <script src="scripts/controllers/seller-detail.js"></script>
 <script src="scripts/controllers/stall-detail.js"></script>
 
+
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/order.js"></script>
 <script src="scripts/controllers/language.js"></script>
@@ -146,7 +147,7 @@
 <script src="scripts/controllers/edit_categories.js"></script>
 <script src="scripts/controllers/edit_types.js"></script>
 <script src="scripts/controllers/edit_stalls.js"></script>
-
+<script src="scripts/controllers/users.js"></script>
 
 <script src="scripts/controllers/testUpload.js"></script>
 
