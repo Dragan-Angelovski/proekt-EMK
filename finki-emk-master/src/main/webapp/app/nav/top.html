@@ -54,8 +54,15 @@
 					  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{$root.user.username}}
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					    <li><a ng-href="#/profile/{{$root.user.username}}" class="clickable"> 
+					   <!--  <li><a ng-href="#/profile/{{$root.user.username}}" class="clickable"> 
 					    	<i class="glyphicon glyphicon-user"></i> Profile </a>
+					    	</li> -->
+					    	<li>
+					    		<form action="#/profile" method="post">
+					    			<input id="username" ng-model="username" type="submit" value="{{$root.user.username}}"></input>
+					    			<i class="glyphicon glyphicon-user"></i><input type="submit" value="Profile"></input>
+					    		</form>
+					    		
 					    	</li>
 					    <li><a ng-click="logout()" class="clickable" tittle="logout"> 
 					    	<i class="glyphicon glyphicon-off"></i>Logout</a></li>

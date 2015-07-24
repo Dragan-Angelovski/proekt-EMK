@@ -5,7 +5,6 @@ FirstApp.controller('userController', [ '$scope', 'crudService',
 			var userService = crudService('users');
 			$scope.user = {};
 			$scope.user = userService.get({
-				username : $routeParams.username
+				username : $scope.username
 			});
-
 		} ]);

@@ -25,7 +25,7 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
     	controller: 'TestController'
     });
 
-	$routeProvider.when('/profile/:username', {
+	$routeProvider.when('/profile', {
     	templateUrl: 'views/user-details.html',
     	controller: 'userController'
     });
