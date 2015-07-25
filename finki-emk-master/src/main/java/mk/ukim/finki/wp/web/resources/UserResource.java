@@ -111,7 +111,7 @@ public class UserResource {
     return null;
   }
   
-  @RequestMapping(value= "/users", method = RequestMethod.POST, produces = "application/json")
+  @RequestMapping(value= "/users/username", method = RequestMethod.POST, produces = "application/json")
   @ResponseBody
   public User getUser(@RequestParam("username") String username){
 	  User user = service.findByUsername(username);

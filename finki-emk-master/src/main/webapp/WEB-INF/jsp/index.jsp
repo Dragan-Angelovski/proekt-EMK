@@ -162,6 +162,7 @@
 <script src="scripts/services/product.js"></script>
 <script src="scripts/services/type.js"></script>
 <script src="scripts/services/stall.js"></script>
+<script src="scripts/services/users.js"></script>
 
 
 <script src="scripts/directives/combo.js"></script>

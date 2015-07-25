@@ -1,10 +1,10 @@
-FirstApp.controller('userController', [ '$scope', 'crudService',
+FirstApp.controller('userController', [ '$scope', 'UsersService',
 		'$routeParams',
-		function($scope, crudService, $routeParams) {
+		function($scope, UsersService, $routeParams) {
 
-			var userService = crudService('users');
 			$scope.user = {};
-			$scope.user = userService.get({
-				username : $scope.username
-			});
+			$scope.user = UsersService.username($.param ({
+				username : username.value
+			}));
+			console.log(username.value);
 		} ]);
