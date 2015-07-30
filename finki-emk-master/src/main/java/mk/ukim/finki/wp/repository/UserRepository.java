@@ -1,8 +1,8 @@
 package mk.ukim.finki.wp.repository;
 
-import mk.ukim.finki.wp.model.User;
+import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import mk.ukim.finki.wp.model.User;
 
 public interface UserRepository extends JpaSpecificationRepository<User> {
 

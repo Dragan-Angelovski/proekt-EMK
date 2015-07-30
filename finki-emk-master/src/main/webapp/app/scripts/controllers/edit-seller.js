@@ -61,10 +61,12 @@ FirstApp.controller('EditSellersController',
 
     	
       var service = crudService('sellers');
+      var userService = crudService('users');
       
-      var data = [{name:"Mitko"},{name:"Petko"}];
+      var data = service.query(function(){
+          tableParamsLoad();
+      });
       
-      tableParamsLoad();
       
       $scope.entities = service.query();
       if ($routeParams.id) {
@@ -76,10 +78,11 @@ FirstApp.controller('EditSellersController',
       }
 
       $scope.edit = function (id) {
-        $scope.entity = service.get({
+        $scope.entity = userService.get({
           id: id
         });
       };
+      
 
       $scope.save = function () {
         service.save($scope.entity, function (data) {

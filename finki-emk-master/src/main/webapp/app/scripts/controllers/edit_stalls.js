@@ -6,6 +6,7 @@ FirstApp.controller('EditStallsController',
 	'toaster',
 	function($scope, $rootScope, crudService, toaster) {
 		var service = crudService("stalls");
+		var sellerService = crudService("users");
 		$scope.entity = {};
 
 		$scope.renderSeller = function(val, markedText, item) {

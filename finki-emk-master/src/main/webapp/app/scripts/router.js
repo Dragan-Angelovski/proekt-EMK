@@ -24,8 +24,14 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
     	templateUrl: 'views/test.html',
     	controller: 'TestController'
     });
-
-	$routeProvider.when('/profile', {
+	//POST
+	/*$routeProvider.when('/profile', {
+    	templateUrl: 'views/user-details.html',
+    	controller: 'userController'
+    });*/
+	
+	//GET
+	$routeProvider.when('/profile/:username', {
     	templateUrl: 'views/user-details.html',
     	controller: 'userController'
     });
