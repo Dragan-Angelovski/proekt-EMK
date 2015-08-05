@@ -39,7 +39,7 @@ FirstApp.controller('EditStallsController',
         loadStalls();
 
 
-		$scope.edit = function(id) {
+		$scope.edit = function(id) {			
 			$scope.entity = service.get({
 				id : id
 			});
