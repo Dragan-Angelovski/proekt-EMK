@@ -1,8 +1,12 @@
-
+<style>
+	.panel-heading{
+		padding:0;
+	}
+</style>
 <div class="">
 	<accordion close-others="true">
 		<accordion-group ng-repeat="cat in sideNav.categories" is-open="status[$index].open">
-			<accordion-heading ng-click="status[$index].open=!status[$index].open">
+			<accordion-heading  ng-class="{padding: 0 }"  ng-click="status[$index].open=!status[$index].open" >
 				 <div class="row">
 					 <div class="col-xs-12" style="margin-right:-30px">
 					<a ng-click="navBrowseCategory(cat.id); $event.stopPropagation();"
