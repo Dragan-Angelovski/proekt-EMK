@@ -1,7 +1,7 @@
 
 FirstApp.factory('UsersService', function($resource) {
 	//POST
-	/*return $resource('/data/rest/users/:action', {}, {
+	return $resource('/data/rest/users/:action', {}, {
 		username:{
 			method: 'POST',
 			params : {
@@ -11,7 +11,7 @@ FirstApp.factory('UsersService', function($resource) {
 				'Content-Type' : 'application/x-www-form-urlencoded'
 			}
 		}
-	});*/
+	});
 	//GET
-	return $resource('/data/rest/users/:username', {}, {});
+	/*return $resource('/data/rest/users/:username', {}, {});*/
 });

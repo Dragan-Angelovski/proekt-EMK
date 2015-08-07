@@ -5,13 +5,13 @@ FirstApp.controller('userController', [ '$scope', 'UsersService',
 			$scope.user = {};
 			
 			//POST
-			/*$scope.user = UsersService.username($.param ({
+			$scope.user = UsersService.username($.param ({
 				username : username.value
-			}));*/
+			}));
 			
 			//GET
-			$scope.user = UsersService.get({
+			/*$scope.user = UsersService.get({
 				username : $routeParams.username
 			});
-			
+			*/
 		} ]);
