@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import mk.ukim.finki.wp.model.Test;
+import mk.ukim.finki.wp.service.TestService;
+import mk.ukim.finki.wp.web.CrudResource;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class testController {
+public class testController extends CrudResource<Test, TestService>{
 	
 	@ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/upload")
@@ -31,6 +35,7 @@ public class testController {
                      new BufferedOutputStream(new FileOutputStream(f));
              stream.write(bytes);
              stream.close();
+             
              return "You successfully uploaded " + name + "!";
          } catch (Exception e) {
              return "You failed to upload " + name + " => " + e.getMessage();
@@ -39,7 +44,13 @@ public class testController {
         	
         	return "";
         	
-	}   	
+	}
+
+	@Override
+	public TestService getService() {
+		// TODO Auto-generated method stub
+		return null;
+	}
         	
 	
 }

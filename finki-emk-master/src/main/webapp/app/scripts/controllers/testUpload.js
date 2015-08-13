@@ -1,29 +1,12 @@
-FirstApp.controller('TestController', [ '$scope', '$upload',  function($scope, $upload){
+FirstApp.controller('TestController', [ '$scope', '$upload',  'crudService', function($scope, $upload, crudService){
 	
-	/*$scope.onFileSelect = function($files) {
-	    for (var i = 0; i < $files.length; i++) {
-	        var file = $files[i];
-	    var test = {
-	        description:"Test",
-	        status: "REJECTED"
-	        };
-	    var fd = new FormData();
-	    fd.append('data', angular.toJson(test));
-	    fd.append("file", file);
-	    $http({
-	        method: 'POST',
-	        url: 'http://localhost:9955/green-market/upload',
-	        headers: {'Content-Type': 'multipart/form-data'},
-	        data: fd,
-	        transformRequest: function(data, headersGetterFunction){
-	        	return data;
-	        }
-	       })
-	       .success(function(data, status) {
-	             alert("success");
-	       });
-	    }
-	};*/
+	var service = crudService();
+	
+	$scope.save = function($files){
+		service.save($scope.entity, function($files){
+		});
+		
+	};
 	
 	$scope.onFileSelect = function($files) {
 	    //$files: an array of files selected, each file has name, size, and type.

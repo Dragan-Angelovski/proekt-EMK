@@ -12,26 +12,11 @@ public class CrudTestServiceImpl extends BaseEntityCrudServiceImpl<Test, TestRep
 
 	
 	@Autowired
-	private SessionFactory sessionFactory;
-	
-	public CrudTestServiceImpl(){
-		
-	}
-	
-	public CrudTestServiceImpl(SessionFactory sessionFactory){
-		this.sessionFactory = sessionFactory;
-	}
-	
-	@Transactional
-	public Test save(Test uplaodFile){
-		sessionFactory.getCurrentSession().save(uplaodFile);
-		return uplaodFile;
-	}
-
+	private TestRepository repository;
 	@Override
 	protected TestRepository getRepository() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository;
 	}
 
 }
