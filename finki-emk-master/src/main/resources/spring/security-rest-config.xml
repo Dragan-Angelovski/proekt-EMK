@@ -29,7 +29,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
                                 position="FORM_LOGIN_FILTER"/>
 
         <security:intercept-url pattern="/data/rest/user/authenticate" access="permitAll"/>
-        <security:intercept-url pattern="/data/rest/**" method="DELETE" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/data/rest/**" method="DELETE" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USERS')"/>
         <security:intercept-url pattern="/data/rest/**" method="POST" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USERS', 'ROLE_SELLERS') "/>
         <security:intercept-url pattern="*" access="permitAll"/>
 

@@ -36,11 +36,6 @@ public class testController {
              return "You failed to upload " + name + " => " + e.getMessage();
          }
         }
-        	/*SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        	Session session = sf.openSession();
-        	session.beginTransaction();
-        	session.save(testName);
-        	session.getTransaction().commit();*/
         	
         	return "";
         	
