@@ -10,10 +10,13 @@ FirstApp
 						'ngTableParams',
 						'$filter',
 						'$modal',
+						'$upload',
 						function($scope, crudService, $routeParams, toaster,
-								settings, ngTableParams, $filter, $modal) {
+								settings, ngTableParams, $filter, $modal, $upload) {
 
-						
+
+
+
 							var service = crudService('products');
 							var categoryService = crudService('categories');
 							var typeService = crudService('types');
@@ -114,6 +117,30 @@ FirstApp
 							}
 
 							$scope.save = function() {
+								if($scope.files != null) {
+									var files = $scope.files;
+									$scope.files=null;
+
+
+
+								 for (var i = 0; i < files.length; i++) {
+                                      var file = files[i];
+                                      $scope.upload = $upload.upload({
+                                        url: 'http://localhost:9955/green-market/upload', //upload.php script, node.js route, or servlet url
+                                        file: file,
+                                      }).progress(function(evt) {
+                                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                                      }).success(function(data, status, headers, config) {
+                                        // file is uploaded successfully
+                                        console.log(data);
+                                      });
+                                   }
+										$scope.entity.imgUrl = files[0].name;
+                                   } else {
+
+                                   }
+
+
 								service.save($scope.entity, function(da) {
 									$scope.entity = {};
 									data = service.query();
@@ -182,6 +209,18 @@ FirstApp
 												});
 
 							};
+
+							$scope.test = function() {
+                                console.log($scope.files);
+                                console.log($scope.files[0].name);
+                            }
+							$scope.files = null;
+
+							$scope.onFileSelect = function($files) {
+								$scope.files = $files;
+                            	    //$files: an array of files selected, each file has name, size, and type.
+
+                            	  };
 							
 							var modalInstance = $modal({
 								template : 'views/productModalContent.html',

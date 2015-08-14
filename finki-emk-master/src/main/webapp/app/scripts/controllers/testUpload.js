@@ -9,6 +9,7 @@ FirstApp.controller('TestController', [ '$scope', '$upload',  'crudService', fun
 	};
 	
 	$scope.onFileSelect = function($files) {
+
 	    //$files: an array of files selected, each file has name, size, and type.
 	    for (var i = 0; i < $files.length; i++) {
 	      var file = $files[i];

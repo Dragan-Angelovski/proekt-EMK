@@ -11,16 +11,7 @@
 							ng-model="entity.name" />
 					</div>
 
-					<div class="form-group">
-						<span class="btn btn-default btn-file"> 
-						<span class="fileinput-new upload-button">
-						<span class="glyphicon glyphicon-upload"></span> Upload Image</span> 
-						<input
-							class="file-upload" type="file"
-							data-ng-file-select="onFileSelect($files)"
-							accept="image/png, image/jpeg, image/jpg">
-						</span>
-					</div>
+					<input type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
 
 					<div>
 						<combo combo-type="categories" combo-required="true"

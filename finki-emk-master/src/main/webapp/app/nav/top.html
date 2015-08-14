@@ -33,12 +33,16 @@
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
-				<li class="dropdown" ng-controller="LanguageController"><a
-					href="#" class="dropdown-toggle" data-toggle="dropdown"> <span>
-							<i class="fa fa-fw fa-flag"></i> <span class="hidden-tablet"
+
+
+				<li class="dropdown" ng-controller="LanguageController">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span>
+							<i class="fa fa-fw fa-flag"></i>
+							<span class="hidden-tablet"
 							translate="generic.language"></span> <b class="caret"></b>
-					</span>
-				</a>
+						</span>
+					</a>
 					<ul class="dropdown-menu">
 						<li class="{{isActive(l.name) ? 'active':''}}"
 							ng-repeat="l in languages"><a

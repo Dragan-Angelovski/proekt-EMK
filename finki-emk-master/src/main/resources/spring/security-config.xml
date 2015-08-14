@@ -34,7 +34,7 @@
 		<security:intercept-url pattern="/data/rest/user/authenticate"
 			access="permitAll" />
 		<security:intercept-url pattern="/data/rest/*"
-			access="hasRole('ROLE_USERS')" />
+			access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="*" access="permitAll" />
 
 	</security:http>
