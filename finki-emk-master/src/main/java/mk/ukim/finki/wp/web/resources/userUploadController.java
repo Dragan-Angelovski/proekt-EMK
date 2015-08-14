@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class testController {
+public class userUploadController {
 	
 	@ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/upload" , method= RequestMethod.POST)
+    @RequestMapping(value = "/upload_user" , method= RequestMethod.POST)
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
 
         byte[] bytes;
         String name = file.getOriginalFilename();
-        String imgDestination= "src/main/webapp/app/imgs/products/";
+        String imgDestination= "src/main/webapp/app/imgs/users/";
         if (!file.isEmpty()) {
         	try{
              bytes = file.getBytes();

@@ -10,8 +10,8 @@
 				<div class="panel-body">
 					<div class="col-md-4">
 						<img class="img-rounded" style="width: 250px"
-							ng-src="imgs/users/seller.png" />
-						<button >Change picture</button>
+							ng-src="imgs/users/{{user.imgUrl}}" />
+							<input type="file" ng-file-select="save($files)" multiple accept="image/*">
 					</div>
 					<div class="col-md-8">
 
