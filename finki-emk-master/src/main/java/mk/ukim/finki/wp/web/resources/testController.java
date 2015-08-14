@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class testController extends CrudResource<Test, TestService>{
+public class testController {
 	
 	@ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/upload")
@@ -45,12 +45,5 @@ public class testController extends CrudResource<Test, TestService>{
         	return "";
         	
 	}
-
-	@Override
-	public TestService getService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-        	
 	
 }

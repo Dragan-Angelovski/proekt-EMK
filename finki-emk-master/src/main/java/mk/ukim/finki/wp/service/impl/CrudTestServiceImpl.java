@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-public class CrudTestServiceImpl extends BaseEntityCrudServiceImpl<Test, TestRepository>implements TestService {
+public class CrudTestServiceImpl extends BaseEntityCrudServiceImpl<Test, TestRepository> implements TestService {
 
 	
 	@Autowired
