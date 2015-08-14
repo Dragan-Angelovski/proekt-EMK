@@ -22,7 +22,7 @@
 		</button>
 		</div>
 		<table ng-table="tableParams" show-filter="true"
-			class="ng-table-responsive">
+			class="table">
 
 			<tr ng-repeat="e in $data">
 				<td data-title="'Name'" sortable="'name'"
@@ -31,6 +31,13 @@
 					filter="{ 'category': 'category' }">{{ e.category.name }}</td>
 				<td data-title="' Type '" sortable="'type.name'"
 					filter="{ 'type': 'type' }">{{ e.type.name }}</td>
+
+				<td data-title="'Stall'" sortable="'stall.number'"
+					filter="{ 'stall': 'text' }">{{ e.stall.number }}</td>
+
+				<td data-title="'Seller'" sortable="'seller.user.fistName'"
+					filter="{ 'seller': 'text' }">{{ e.seller.user.fistName }}</td>
+
 				<td data-title="'Price'" sortable="'price'"
 					filter="{ 'price': 'text' }">{{ e.price }}</td>
 				<td data-title="'Quantity'" sortable="'quantity'"
@@ -65,7 +72,5 @@
 			</tr>
 		</table>
 	</div>
-
-	<button ng-click="test()">TEST btn!</button>
 
 </div>

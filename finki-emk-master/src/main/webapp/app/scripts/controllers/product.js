@@ -51,6 +51,7 @@ FirstApp
 								tableParamsLoad();
 							});
 
+							$scope.entities = data;
 							var tableParamsLoad = function() {
 								$scope.tableParams = new ngTableParams(
 										{

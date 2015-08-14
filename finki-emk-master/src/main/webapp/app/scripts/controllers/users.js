@@ -1,14 +1,15 @@
 FirstApp.controller('userController', [ '$scope', 'UsersService',
-		'$routeParams',
-		function($scope, UsersService, $routeParams) {
+		'$routeParams', '$rootScope',
+		function($scope, UsersService, $routeParams, $rootScope) {
+
 
 			$scope.user = {};
-			
+
 			//POST
 			$scope.user = UsersService.username($.param ({
-				username : username.value
+				username : $rootScope.user.username
 			}));
-			
+
 			//GET
 			/*$scope.user = UsersService.get({
 				username : $routeParams.username

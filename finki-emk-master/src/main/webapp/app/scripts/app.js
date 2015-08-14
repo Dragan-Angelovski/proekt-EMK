@@ -113,6 +113,11 @@ FirstApp.run
 						$location.path("/login");
 					};
 
+					$rootScope.profile = function() {
+						$location.path("/profile");
+
+					};
+
 					if (!$rootScope.authToken) {
 						var tempTokenService = $http
 								.get('/data/rest/token')

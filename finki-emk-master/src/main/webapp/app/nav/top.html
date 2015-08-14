@@ -35,46 +35,28 @@
 				</form>
 
 
-				<li class="dropdown" ng-controller="LanguageController">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<span>
-							<i class="fa fa-fw fa-flag"></i>
-							<span class="hidden-tablet"
-							translate="generic.language"></span> <b class="caret"></b>
-						</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li class="{{isActive(l.name) ? 'active':''}}"
-							ng-repeat="l in languages"><a
-							ng-click="changeLanguage(l.name)"> <span
-								class="famfamfam-flag-{{l.name}}"></span>&nbsp;<span
-								translate="generic.{{l.name}}"></span></a></li>
 
-					</ul></li>
 				
 				<li><a ng-href="#/login" ng-if="!$root.user">Login</a></li>
 					
-					<li class="dropdown" ng-if="$root.user">
-					  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{$root.user.username}}
-					  <span class="caret"></span></button>
-					  <ul class="dropdown-menu">
-					  	<!-- so GET -->
-					   <!--  <li><a ng-href="#/profile/{{$root.user.username}}" class="clickable"> 
-					    	<i class="glyphicon glyphicon-user"></i> Profile </a>
-					    	</li> -->
+				<li class="dropdown" ng-if="$root.user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span>{{$root.user.username}}</span>
+						<b class="caret"></b>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a ng-click="profile()" class="clickable" tittle="Profile">
+							<i class="glyphicon glyphicon-user"></i>Profile</a>
+						</li>
 					    	
-					    	<!-- so POST -->
-					    	<li>
-					    		<form action="#/profile" method="post" ng-submit="username()">
-					    			<input id="username" name="username" ng-model="username" type="submit" hidden="true" value="{{$root.user.username}}" ></input>
-					    			<i class="glyphicon glyphicon-user"></i><input type="submit" id="submit" value="Profile"></input>
-					    		</form>
-					    	</li>
-					    	
-					    <li><a ng-click="logout()" class="clickable" tittle="logout"> 
-					    	<i class="glyphicon glyphicon-off"></i>Logout</a></li>
-					  </ul>
-					</li>
+					    <li>
+							<a ng-click="logout()" class="clickable" tittle="logout">
+					    	<i class="glyphicon glyphicon-off"></i>Logout</a>
+						</li>
+				  	</ul>
+				</li>
 			
 			</ul>
 			<div class="row">
