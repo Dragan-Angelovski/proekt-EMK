@@ -1,9 +1,8 @@
 FirstApp.controller('userController', [ '$scope', 'UsersService',
-		'$routeParams', '$rootScope', '$upload' ,
-		function($scope, UsersService, $routeParams, $rootScope, $upload) {
+		'$routeParams', '$rootScope', '$upload' , 'crudService',
+		function($scope, UsersService, $routeParams, $rootScope, $upload, crudService) {
 
 			$scope.user = {};
-			
 			
 			
 			//POST
@@ -36,24 +35,24 @@ FirstApp.controller('userController', [ '$scope', 'UsersService',
                       }).progress(function(evt) {
                         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                       }).success(function(data, status, headers, config) {
-                        // file is uploaded successfully
-                        console.log(data);
+                        
+                    	  $scope.user.imgUrl = files[0].name;
+  						
+
+ 						 UsersService.save($.param ({
+ 							user : $scope.user
+ 						 }));
+                        
                       });
                    }
-						$scope.user.imgUrl = files[0].name;
+						
                    } else {
 
                    }
 
-
-				user.save($scope.user, function(data) {
 					
-				});
 			};
 			
 			$scope.files = null;
 			
-			$scope.onFileSelect = function($files){
-				
-			}
 		} ]);

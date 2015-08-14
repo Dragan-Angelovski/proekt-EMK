@@ -119,6 +119,13 @@ public class UserResource {
 	  return user;
   }
   
+  
+  @RequestMapping(value= "/users/save", method = RequestMethod.POST, produces = "application/json")
+  @ResponseBody
+  public User saveUser(@RequestParam("user") User user){
+	   service.save(user);
+	  return user;
+  }
   //GET
  /* @RequestMapping(value= "/users/{username}", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody

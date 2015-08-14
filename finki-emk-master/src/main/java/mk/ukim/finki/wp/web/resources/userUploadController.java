@@ -5,10 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import mk.ukim.finki.wp.model.Test;
-import mk.ukim.finki.wp.service.TestService;
-import mk.ukim.finki.wp.web.CrudResource;
+import mk.ukim.finki.wp.service.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class userUploadController {
-	
+	 @Autowired
+	 private UserService service;
+
+	 
 	@ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/upload_user" , method= RequestMethod.POST)
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {

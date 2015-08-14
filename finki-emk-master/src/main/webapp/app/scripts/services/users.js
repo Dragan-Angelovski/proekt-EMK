@@ -10,6 +10,16 @@ FirstApp.factory('UsersService', function($resource) {
 			headers : {
 				'Content-Type' : 'application/x-www-form-urlencoded'
 			}
+		},
+		save:{
+			method: 'POST',
+			params :{
+				'action' : 'save'
+			},
+			headers : {
+				'Content-Type' : 'application/x-www-form-urlencoded'
+			}
+			
 		}
 	});
 	//GET
