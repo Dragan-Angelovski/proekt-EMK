@@ -127,7 +127,8 @@ FirstApp
 								 for (var i = 0; i < files.length; i++) {
                                       var file = files[i];
                                       $scope.upload = $upload.upload({
-                                        url: 'http://localhost:9955/green-market/upload_product', //upload.php script, node.js route, or servlet url
+                                        url: 'http://localhost:9955/green-market/upload_product',
+                                        method: 'POST',//upload.php script, node.js route, or servlet url
                                         file: file,
                                       }).progress(function(evt) {
                                         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));

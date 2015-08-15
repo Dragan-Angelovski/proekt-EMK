@@ -2,15 +2,23 @@ FirstApp.controller('userController', [ '$scope', 'UsersService',
 		'$routeParams', '$rootScope', '$upload' , 'crudService',
 		function($scope, UsersService, $routeParams, $rootScope, $upload, crudService) {
 
-			$scope.user = {};
-			
+			var stallService = crudService('stalls');
+			var sellerService = crudService('sellers');
 			
 			//POST
-			$scope.user = UsersService.username($.param ({
+			
+			UsersService.username($.param ({
 				username : $rootScope.user.username
-			}));
+				
+			}),function(data){
+				$scope.user = data;
+			});
 			
+			$scope.user = {
+				firstName : $scope.name
+			}
 			
+			console.log($scope.editUser);
 			//GET
 			/*$scope.user = UsersService.get({
 				username : $routeParams.username
@@ -35,21 +43,25 @@ FirstApp.controller('userController', [ '$scope', 'UsersService',
                       }).progress(function(evt) {
                         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                       }).success(function(data, status, headers, config) {
-                        
-                    	  $scope.user.imgUrl = files[0].name;
-  						
+                    	  
 
- 						 UsersService.save($.param ({
- 							user : $scope.user
- 						 }));
-                        
+ 						 
                       });
+                      
+                     
                    }
+				 	
+					 UsersService.save($.param ({
+							username : $scope.user.username,
+							imgUrl : files[0].name
+						 }));
+					 
+					 $scope.user.imgUrl = files[0].name;
 						
-                   } else {
-
                    }
-
+				
+				
+                
 					
 			};
 			

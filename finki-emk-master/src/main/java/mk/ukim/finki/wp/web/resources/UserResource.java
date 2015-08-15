@@ -122,8 +122,12 @@ public class UserResource {
   
   @RequestMapping(value= "/users/save", method = RequestMethod.POST, produces = "application/json")
   @ResponseBody
-  public User saveUser(@RequestParam("user") User user){
+  public User saveUser(@RequestParam("username") String username, @RequestParam("imgUrl") String imgUrl){
+	  User user = service.findByUsername(username);
+	  System.out.println(imgUrl + username);
+	  	user.setImgUrl(imgUrl);
 	   service.save(user);
+	  
 	  return user;
   }
   //GET
