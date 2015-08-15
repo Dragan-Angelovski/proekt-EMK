@@ -136,7 +136,7 @@
 <script src="scripts/controllers/header.js"></script>
 <script src="scripts/controllers/seller-detail.js"></script>
 <script src="scripts/controllers/stall-detail.js"></script>
-
+<script src="scripts/controllers/register-user.js"></script>
 
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/order.js"></script>

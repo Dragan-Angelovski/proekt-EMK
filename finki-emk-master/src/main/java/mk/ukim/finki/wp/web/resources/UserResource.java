@@ -1,10 +1,12 @@
 package mk.ukim.finki.wp.web.resources;
 
 import mk.ukim.finki.wp.model.User;
+import mk.ukim.finki.wp.model.User.Role;
 import mk.ukim.finki.wp.security.TokenTransfer;
 import mk.ukim.finki.wp.security.TokenUtils;
 import mk.ukim.finki.wp.security.UserTransfer;
 import mk.ukim.finki.wp.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.UUID;
 
@@ -126,6 +129,25 @@ public class UserResource {
 	  User user = service.findByUsername(username);
 	  System.out.println(imgUrl + username);
 	  	user.setImgUrl(imgUrl);
+	   service.save(user);
+	  
+	  return user;
+  }
+  
+  @RequestMapping(value= "/users/create", method = RequestMethod.POST, produces = "application/json")
+  @ResponseBody
+  public User createUser(@RequestParam("username") String username, @RequestParam("password") String password,
+		  @RequestParam("fistName") String fistName,@RequestParam("lastName") String lastName,
+		  @RequestParam("email") String email){
+	  User user = new User();
+	  user.setFistName(fistName);
+	  user.setLastName(lastName);
+	  user.setEmail(email);
+	  user.setUsername(username);
+	  user.setPassword(password);
+	  user.setRole(Role.ROLE_USERS);
+	  System.out.println(fistName + username);
+	  	
 	   service.save(user);
 	  
 	  return user;

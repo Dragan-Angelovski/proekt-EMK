@@ -20,6 +20,16 @@ FirstApp.factory('UsersService', function($resource) {
 				'Content-Type' : 'application/x-www-form-urlencoded'
 			}
 			
+		},
+		create:{
+			method: 'POST',
+			params :{
+				'action' : 'create'
+			},
+			headers : {
+				'Content-Type' : 'application/x-www-form-urlencoded'
+			}
+			
 		}
 	});
 	//GET

@@ -29,6 +29,10 @@ FirstApp.config([ '$routeProvider', function($routeProvider) {
     	templateUrl: 'views/user-details.html',
     	controller: 'userController'
     });
+	$routeProvider.when('/register', {
+    	templateUrl: 'views/user_registration.html',
+    	controller: 'RegisterUserController'
+    });
 	
 	//GET
 	/*$routeProvider.when('/profile/:username', {
