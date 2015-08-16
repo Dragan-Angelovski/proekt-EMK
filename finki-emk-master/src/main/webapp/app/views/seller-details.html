@@ -1,29 +1,43 @@
 <div class="container-fluid">
 	<div class="row">
-
 		<div class="col-md-4">
-			<img class="img-rounded" style="width: 150px"
-				 ng-src="imgs/users/{{seller.user.imgUrl}}" />
-		</div>
-		<div class="col-md-8">
-			<div class="row">
-				<h1>{{seller.user.fistName}} {{seller.user.lastName}}</h1>
-			</div>
-			<div class="row">
-				<h4>Email: {{seller.user.email}} </h4>
-			</div>
-			<div class="row">
-				<h4>Number of stalls: {{stalls.length}}</h4>
+			<div class="panel panel-info">
+				<div class="row">
+					<div class="col-md-4">
+						<img class="img-rounded" style="width: 200px;"
+							ng-src="imgs/users/{{seller.user.imgUrl}}" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="list-group" >
+							<li class="list-group-item" style="margin-top:3px"><span
+								class="glyphicon glyphicon-user"></span>
+								Name
+								<p class="pull-right">{{seller.user.fistName}} {{seller.user.lastName}}</p></li>
+							<li class="list-group-item" style="margin-top:3px"><span
+								class="glyphicon glyphicon-envelope"></span>
+							    Email
+							<p class="pull-right" style="font-size:90%">{{seller.user.email}}</p></li>
+							<li class="list-group-item" style="margin-top:3px"><span
+								class="glyphicon glyphicon-credit-card"></span>
+								Stall Number 
+								<p class="pull-right">{{stalls.length}}</p></li>
+						</ul>
+					</div>
+
+
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<div class="row">
 				<h3>Stalls</h3>
 				<div class="row">
-						<stall-display ng-repeat="stall in stalls" entity="stall"></stall-display>
+					<stall-display ng-repeat="stall in stalls" entity="stall"></stall-display>
 				</div>
+			</div>
 		</div>
-</div>
 	</div>
 </div>
