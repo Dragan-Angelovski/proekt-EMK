@@ -10,15 +10,11 @@
 						<label>Name</label> <input type="text" class="form-control"
 							ng-model="entity.name" />
 					</div>
-
-					<input type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
-
-					<div>
-						<combo combo-type="categories" combo-required="true"
-							combo-label="category" combo-model="entity.category"
-							combo-name="category"> </combo>
+					
+					<div class="form-group">
+						<input class="btn btn-primary" type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
 					</div>
-
+					
 					<div>
 						<combo combo-type="types" combo-required="true" combo-label="type"
 							combo-model="entity.type" combo-name="types"> </combo>

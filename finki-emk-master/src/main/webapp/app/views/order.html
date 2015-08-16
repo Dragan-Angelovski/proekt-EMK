@@ -16,7 +16,7 @@
 			</div>
 
 		</div>
-		<product-display ng-repeat="e in entities" entity="e.product"
+		<product-display class="col-md-4 col-sm-12" ng-repeat="e in entities" entity="e.product"
 			order-id="e.id " remove-from-cart="remove(orderId, index=$index)"
 			remove-btn="true" shopping-cart="false"></product-display>
 

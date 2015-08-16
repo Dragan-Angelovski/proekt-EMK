@@ -28,11 +28,11 @@ FirstApp.controller('LoginController', [
                 		  userId : data.id
                 	  },function(data){
                 		  $rootScope.seller = data;
-            
+                		  console.log($rootScope.seller);
                 	  });
                   }
                   else{
-                  	$rootScope.seller = null;
+                  		$rootScope.seller = null;
                   }
             });
             

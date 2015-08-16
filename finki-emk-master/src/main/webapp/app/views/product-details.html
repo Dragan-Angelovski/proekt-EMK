@@ -82,6 +82,19 @@
 								</a>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<input type="number" class="form-control" style="width: 70px;"
+								ng-model="qty"  min="1" max="{{product.quantity}}" ng-click="$event.stopPropagation();" />
+							</div>
+							<div class="col-md-4">
+								<h4>
+									<button class="btn btn-primary" ng-click="addToCart(); $event.stopPropagation();">
+										<i class="glyphicon glyphicon-shopping-cart"></i>Add to cart
+									</button>
+								</h4>
+							</div>
+						</div>
 
 					</div>
 				</div>

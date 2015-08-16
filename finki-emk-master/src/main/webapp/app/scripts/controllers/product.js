@@ -142,7 +142,7 @@ FirstApp
 
                                    }
 
-
+									$scope.entity.category = $scope.entity.type.category;
 								service.save($scope.entity, function(da) {
 									$scope.entity = {};
 									data = service.query();

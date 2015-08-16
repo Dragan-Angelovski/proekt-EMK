@@ -47,8 +47,10 @@ FirstApp.run
 	'UserService',
 	'TypeService',
 	'Order',
+	'UsersService',
+	'SellerService',
 	function($rootScope, $http, $cookies, $location, crudService,
-						$cookieStore, UserService, TypeService, Order) {
+						$cookieStore, UserService, TypeService, Order, UsersService, SellerService) {
 
 
 		Order.getMyOrders(function(data) {
@@ -97,6 +99,22 @@ FirstApp.run
 					if ($rootScope.authToken) {
 						UserService.get(function(u) {
 							$rootScope.user = u;
+							UsersService.username($.param ({
+				            	username : $rootScope.user.username
+				            }),function(data){
+				            
+				            	if(data.role == "ROLE_SELLERS"){
+				                	  SellerService.findByUserId({
+				                		  userId : data.id
+				                	  },function(data){
+				                		  $rootScope.seller = data;
+				                		  
+				                	  });
+				                  }
+				                  else{
+				                  		$rootScope.seller = null;
+				                  }
+				            });
 						});
 					}
 
