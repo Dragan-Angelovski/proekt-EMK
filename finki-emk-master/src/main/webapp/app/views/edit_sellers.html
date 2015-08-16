@@ -1,4 +1,6 @@
 <div class="col-md-12">
+			<button class="btn btn-success" ng-click="showEdit(e)">Add new seller
+			</button>
 			<table ng-table="tableParams" show-filter="true"
 			class="table table-bordered table-striped">
 
@@ -8,7 +10,7 @@
 				<td data-title="'LastName'" sortable="'lastName'"
 					filter="{ 'lastName': 'text' }">{{ e['user']['lastName'] }}</td>
 				<td data-title="'Edit'" >
-					<button ng-click="edit(e.id)" class="btn btn-primary btn-xs">
+					<button ng-click="showEdit(e.id)" class="btn btn-primary btn-xs">
 						<i class="glyphicon glyphicon-edit">Edit</i>
 					</button>
 				</td>

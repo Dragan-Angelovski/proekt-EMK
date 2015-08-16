@@ -156,14 +156,24 @@
 		</div>
 		
 		<div class="row" ng-if="user.role === 'ROLE_SELLERS'">
-			<div>
-				<stall-display ng-repeat="stall in stalls" entity="stall"></stall-display>
+			<div class="panel panel-primary">
+				<div class="panel panel-heading">
+					<h3 align="center">My stalls:</h3>
+				</div>
+				<div class="panel panel-body">
+					<stall-display ng-repeat="stall in stalls" entity="stall"></stall-display>
+				</div>
 			</div>
 		</div>
 		
 		<div class="row" ng-if="user.role === 'ROLE_ADMIN'">
-			<div>
-				<stall-display ng-repeat="stall in allStalls" entity="stall"></stall-display>
+			<div class="panel panel-primary">
+				<div class="panel panel-heading">
+					<h3 align="center">All stalls:</h3>
+				</div>
+				<div class="panel panel-body">
+					<stall-display ng-repeat="stall in allStalls" entity="stall"></stall-display>
+				</div>
 			</div>
 		</div>
 	</div>

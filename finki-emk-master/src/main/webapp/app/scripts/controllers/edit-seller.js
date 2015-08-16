@@ -6,7 +6,16 @@ FirstApp.controller('EditSellersController',
     'toaster',
     'ngTableParams',
     '$filter',
-    function ($scope, crudService, $routeParams, toaster, ngTableParams, $filter) {
+    '$modal',
+	'$upload',
+    function ($scope, crudService, $routeParams, toaster, ngTableParams, $filter, $modal, $upload) {
+    	
+        var sellerService = crudService('sellers');
+        var userService = crudService('users');
+        
+        var data = sellerService.query(function(){
+            tableParamsLoad();
+        });
     
     	var tableParamsLoad = function() {
 			$scope.tableParams = new ngTableParams(
@@ -59,16 +68,12 @@ FirstApp.controller('EditSellersController',
 					});
 		}
 
-    	
-      var service = crudService('sellers');
-      var userService = crudService('users');
+    
       
-      var data = service.query(function(){
-          tableParamsLoad();
-      });
+     
       
       
-      $scope.entities = service.query();
+      $scope.entities = sellerService.query();
       if ($routeParams.id) {
         $scope.entity = service.get({
           id: $routeParams.id
@@ -82,37 +87,76 @@ FirstApp.controller('EditSellersController',
           id: id
         });
       };
-      
+      console.log($scope.entity);
 
       $scope.save = function () {
-        service.save($scope.entity, function (data) {
+        userService.save($scope.entity, function (data) {
+        	console.log(data);
           $scope.entity = {};
-          $scope.entities = service.query();
+          $scope.entities = userService.query();
         });
       };
+      
+      if ($routeParams.id) {
+			$scope.entity = userService.get({
+				id : $routeParams.id
+			});
+		} else {
+			$scope.entity = {};
+		}
 
-      $scope.remove = function (id) {
-        service
-          .remove(
-          {
-            id: id
-          },
-          function () {
-            $scope.entities = service
-              .query();
-          },
-          function (res) {
-            if (res.status == 500) {
-              // alert('ne moze da se
-              // izbrise!');
-              toaster
-                .pop(
-                'error',
-                'Deleting error',
-                "Ne moze da se izbrise objektot. Postoi drug objekt so nadvoresen kluc koj pokazuva kon nego!");
-            }
-          });
+      $scope.remove = function(id) {
+			sellerService
+					.remove(
+							{
+								id : id
+							},
+							function() {
+								data = sellerService.query();
+								data.$promise
+										.then(function(data) {
+											$scope.tableParams
+													.reload();
+										});
+							},
+							function(res) {
+								if (res.status == 500) {
+									// alert('ne moze da se
+									// izbrise!');
+									toaster
+											.pop(
+													'error',
+													'Deleting error',
+													"Ne moze da se izbrise objektot. Postoi drug objekt so nadvoresen kluc koj pokazuva kon nego!");
+								}
+							});
 
+		};
+
+      
+      var modalInstance = $modal({
+    	  template: 'views/sellerModalContent.html',
+    	  scope: $scope,
+    	  show: false
+      });
+      
+      $scope.createSeller = function(){
+    	  $scope.save();
+    	  modalInstance.hide();
       };
+      
+      $scope.cancel = function(){
+    	  modalInstance.hide();
+      }
+      
+      $scope.showEdit = function(entity) {
+			if(entity != null) {
+				$scope.entity = $.extend( true, {}, entity );									
+			} else {
+				$scope.entity = {};
+			}
+			modalInstance.$promise.then(modalInstance.show);
+		};
+      
 
     }]);

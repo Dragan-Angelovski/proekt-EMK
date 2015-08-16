@@ -1,0 +1,48 @@
+<div class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+					<strong class="modal-title"> Create account to continue</strong>
+				<div class="modal-body">
+					<div class="panel">
+					<div class="form-group">
+						<label>FirstName</label> <input type="text" class="form-control"
+							ng-model="entity.fistName" />
+					</div>
+					<div>
+						<label>LastName</label> <input type="text" class="form-control"
+							ng-model="entity.lastName" />
+					</div>
+					
+					<div>
+						<label>Email</label> <input type="text" class="form-control"
+							ng-model="entity.email" />
+					</div>
+
+					<div>
+						<label>Username</label> <input type="text" class="form-control"
+							ng-model="entity.username" />
+					</div>
+
+					<div class="form-group">
+						<label>Password</label> <input type="password" class="form-control"
+							ng-model="entity.password" />
+					</div>
+
+					<div class="form-group">
+						<label>Upload image</label> 
+						<input type="file" class="btn btn-primary" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+					</div>
+
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn btn-primary" ng-click="createSeller()">OK</button>
+				<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
