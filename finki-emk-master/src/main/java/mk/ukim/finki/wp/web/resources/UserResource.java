@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.web.resources;
 
+import mk.ukim.finki.wp.model.StatusMessage;
 import mk.ukim.finki.wp.model.User;
 import mk.ukim.finki.wp.model.User.Role;
 import mk.ukim.finki.wp.security.TokenTransfer;
@@ -138,21 +139,41 @@ public class UserResource {
   
   @RequestMapping(value= "/users/create", method = RequestMethod.POST, produces = "application/json")
   @ResponseBody
-  public User createUser(@RequestParam("username") String username, @RequestParam("password") String password,
+  public StatusMessage createUser(@RequestParam("username") String username, @RequestParam("password") String password,
 		  @RequestParam("fistName") String fistName,@RequestParam("lastName") String lastName,
-		  @RequestParam("email") String email){
-	  User user = new User();
-	  user.setFistName(fistName);
-	  user.setLastName(lastName);
-	  user.setEmail(email);
-	  user.setUsername(username);
-	  user.setPassword(password);
-	  user.setRole(Role.ROLE_USERS);
-	  System.out.println(fistName + username);
-	  	
-	   service.save(user);
+		  @RequestParam("email") String email, @RequestParam("imgUrl") String imgUrl){
+	  StatusMessage sMsg = new StatusMessage();
 	  
-	  return user;
+	  if(username.trim() != "" && password.trim() != "" && fistName.trim() != "" && email.trim() != ""){
+		  
+		  User identicalUser = service.findByUsername(username);
+		  if(identicalUser != null){
+			  sMsg.setMessage("Username already exists !");
+			  sMsg.setSuccess("error");
+		  }
+		  else{
+			  if(imgUrl == null){
+				  imgUrl = "seller.png";
+			  }
+			  User user = new User();
+			  user.setFistName(fistName);
+			  user.setLastName(lastName);
+			  user.setEmail(email);
+			  user.setUsername(username);
+			  user.setPassword(password);
+			  user.setRole(Role.ROLE_USERS);
+			  user.setImgUrl(imgUrl);
+			  sMsg.setMessage("Successfuly created new account !");
+			  sMsg.setSuccess("success");
+			  service.save(user);
+		  }
+	  }
+	  else{
+		  sMsg.setMessage("All fileds are required !");
+		  sMsg.setSuccess("error");
+	  }
+
+	  return sMsg;
   }
   //GET
  /* @RequestMapping(value= "/users/{username}", method = RequestMethod.GET, produces = "application/json")

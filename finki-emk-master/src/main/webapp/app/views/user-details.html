@@ -160,5 +160,11 @@
 				<stall-display ng-repeat="stall in stalls" entity="stall"></stall-display>
 			</div>
 		</div>
+		
+		<div class="row" ng-if="user.role === 'ROLE_ADMIN'">
+			<div>
+				<stall-display ng-repeat="stall in allStalls" entity="stall"></stall-display>
+			</div>
+		</div>
 	</div>
 </div>

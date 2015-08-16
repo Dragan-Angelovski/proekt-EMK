@@ -34,5 +34,6 @@ public class StallResource extends CrudResource<Stall, CrudStallService> {
 			HttpServletRequest request, HttpSession session) {
 		return getService().findBySellerId(id);
 	}
+	
 
 }

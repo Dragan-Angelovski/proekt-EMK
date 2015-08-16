@@ -4,7 +4,6 @@ import mk.ukim.finki.wp.model.Seller;
 
 public interface CrudSellerService extends BaseEntityCrudService<Seller> {
 
-	
-
+	Seller findByUserId(Long id);
 }
 

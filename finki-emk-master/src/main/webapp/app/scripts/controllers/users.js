@@ -1,19 +1,49 @@
 FirstApp.controller('userController', [ '$scope', 'UsersService',
-		'$routeParams', '$rootScope', '$upload' , 'crudService',
-		function($scope, UsersService, $routeParams, $rootScope, $upload, crudService) {
+		'$routeParams', '$rootScope', '$upload' , 'SellerService', 'StallService',
+		function($scope, UsersService, $routeParams, $rootScope, $upload, SellerService, StallService) {
 
-			
-			var stallService = crudService('stalls');
-			var sellerService = crudService('sellers');
+			if($scope.user.role == "ROLE_ADMIN"){
+				StallService.query(function(data){
+					$scope.allStalls = data;
+				});
+				
+			}
 			
 			//POST
-			var userImage = null;
+			var userImage = "";
 			UsersService.username($.param ({
 				username : $rootScope.user.username
 				
 			}), function(data){
 				$scope.user = data;
+				userImage = $scope.user.imgUrl;
+				
+				if($scope.user.role == "ROLE_SELLERS"){
+					SellerService.findByUserId({
+						userId : $scope.user.id
+						
+					}, function(seller){
+						console.log(seller);
+						function compare(a,b) {
+							if (a.number < b.number)
+								return -1;
+								if (a.number > b.number)
+								return 1;
+								return 0;
+				            }
+	
+							StallService.findBySeller({
+								id : seller.id
+							}, function(data) {
+								$scope.stalls = data;
+								$scope.stalls.sort(compare);
+							});
+					});
+				}
 			});
+			
+			
+			
 			
 			
 			
@@ -43,7 +73,6 @@ FirstApp.controller('userController', [ '$scope', 'UsersService',
 			$scope.onFileSelect = function($files){
 				$scope.files = $files;
 				userImage = $scope.user.imgUrl;
-				$scope.user.imgUrl = "";
 				$scope.user.imgUrl = $scope.files[0].name;
 			}
 			

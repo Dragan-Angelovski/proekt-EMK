@@ -30,6 +30,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
         <security:intercept-url pattern="/data/rest/user/authenticate" access="permitAll"/>
         <security:intercept-url pattern="/data/rest/order_items/**" method="DELETE" access="hasRole('ROLE_USERS')"/>
+        <security:intercept-url pattern="/data/rest/users/create" method="POST" access="permitAll"/>
         <security:intercept-url pattern="/data/rest/**" method="DELETE" access="hasRole('ROLE_ADMIN')"/>
         <security:intercept-url pattern="/data/rest/**" method="POST" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USERS', 'ROLE_SELLERS') "/>
         <security:intercept-url pattern="*" access="permitAll"/>
