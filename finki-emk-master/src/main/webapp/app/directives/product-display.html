@@ -23,7 +23,7 @@
 				<div class="col-md-12">Price: ${{entity.price}}</div>
 			</div>
 			<br />
-			<div class="row">
+			<div class="row" ng-if="$root.user.role === 'ROLE_USERS'">
 				<div class="col-md-6">
 					<div class="col-md-4">
 						<h4>Qty</h4>

@@ -1,10 +1,13 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12">
-      <h2>Products from type {{type.name}} </h2>
-    </div>
-
-    <product-display class="col-md-4 col-sm-12" ng-repeat="e in entities" entity="e" shopping-cart="true"></product-display>
-  </div>
+    <div class="panel panel-default"  style="background-image: url(imgs/wooden.jpg)">
+				<div class="panel panel-heading">
+					<h2 class="text-center">Products from type {{type.name}}</h2>
+				</div>
+				<div class="panel-body" >
+					<product-display class="col-md-4 col-sm-12" ng-repeat="e in entities" entity="e"
+						shopping-cart="true"></product-display>
+				</div>
+			</div>
 </div>

@@ -16,7 +16,7 @@
 				<li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>
 				<li ng-class="{ active: isActive('/stalls')}"><a ng-href="#/stalls">Stalls</a></li>
 				<li ng-class="{ active: isActive('/sellers')}"><a ng-href="#/sellers">Sellers</a></li>
-				<li ng-class="{ active: isActive('/order_items')}"><a ng-href="#/order_items">
+				<li ng-if="$root.user.role === 'ROLE_USERS'" ng-class="{ active: isActive('/order_items')}"><a ng-href="#/order_items">
 					<i class="glyphicon glyphicon-shopping-cart"></i>
 					<span class="badge">{{numCartItems}}</span>Shopping Cart
 				</a></li>

@@ -28,7 +28,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div ng-repeat="product in products" class="col-md-4">
-									<button class="btn btn-danger btn-block" ng-click="remove(product)"><i class="glyphicon glyphicon-remove">Remove</i></button>
+									<button ng-if="$root.seller != null && $root.seller.id === stall.seller.id" class="btn btn-danger btn-block" ng-click="remove(product)"><i class="glyphicon glyphicon-remove">Remove</i></button>
 									<product-display entity="product"
 									shopping-cart="true"></product-display>
 							</div>
