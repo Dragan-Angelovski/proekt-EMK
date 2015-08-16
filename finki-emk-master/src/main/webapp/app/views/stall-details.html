@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
-	<div class="panel panel-info">
-		<div class="panel-heading">
+	<div class="panel panel-default" style="background-image: url(imgs/wooden.jpg)">
+		<div class="panel panel-heading">
 			<div class="row">
 				<div class="col-md-3 col-md-offset-1">
 					<h1>Stall #{{stall.number}}</h1>
@@ -17,8 +17,8 @@
 
 		<div class="panel-body">
 			<div class="row">
-				<div class="col-md-12" style="background-color: lightgreen;">
-					<h3 style="text-align: center;">Products</h3>
+				<div class="col-md-12" >
+					<br/>
 					<div class="container-fluid">
 						<div class="row">
 							<product-display ng-repeat="product in products" entity="product"

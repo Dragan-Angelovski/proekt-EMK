@@ -1,6 +1,11 @@
-
-<div class="container-fluid">
-	<div class="row">
-		<stall-display ng-repeat="e in entities" entity="e"></stall-display>
+<div class="container-fluid" >
+	<div class="row" >
+		<div class="panel panel-default">
+			<div class="panel panel-heading">
+				<h3 class="text-center">All stalls available on our market</h3>
+			</div>
+			<div class="panel-body" >
+				<stall-display ng-repeat="e in entities" entity="e"></stall-display>
+			</div>
+		</div>
 	</div>
-</div>
