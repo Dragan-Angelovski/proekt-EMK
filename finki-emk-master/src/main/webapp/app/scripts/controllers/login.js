@@ -4,8 +4,10 @@ FirstApp.controller('LoginController', [
   '$location',
   '$filter',
   'UserService',
+  'SellerService',
   'toaster',
-  function($scope, $rootScope, $location, $filter, UserService, toaster) {
+  'UsersService',
+  function($scope, $rootScope, $location, $filter, UserService, SellerService, toaster, UsersService) {
     $scope.rememberMe = false;
 
     $scope.login = function() {
@@ -17,7 +19,25 @@ FirstApp.controller('LoginController', [
           $rootScope.authToken = authenticationResult.token;
           UserService.get(function(u) {
             $rootScope.user = u;
+            UsersService.username($.param ({
+            	username : $rootScope.user.username
+            }),function(data){
+            
+            	if(data.role == "ROLE_SELLERS"){
+                	  SellerService.findByUserId({
+                		  userId : data.id
+                	  },function(data){
+                		  $rootScope.seller = data;
+            
+                	  });
+                  }
+                  else{
+                  	$rootScope.seller = null;
+                  }
+            });
+            
           });
+          
           $rootScope.loginAction = true;
           if($rootScope.returnPath
             && $rootScope.returnPath != "/login") {

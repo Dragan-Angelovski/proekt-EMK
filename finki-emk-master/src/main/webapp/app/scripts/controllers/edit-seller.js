@@ -67,34 +67,49 @@ FirstApp.controller('EditSellersController',
 						console.log('errror', error);
 					});
 		}
+    	
+    $scope.onFileSelect = function($files) {
+			$scope.files = $files;
+        	    //$files: an array of files selected, each file has name, size, and type.
 
-    
-      
-     
-      
-      
-      $scope.entities = sellerService.query();
-      if ($routeParams.id) {
-        $scope.entity = service.get({
-          id: $routeParams.id
-        });
-      } else {
-        $scope.entity = {};
-      }
-
-      $scope.edit = function (id) {
-        $scope.entity = userService.get({
-          id: id
-        });
-      };
-      console.log($scope.entity);
-
+        	  };
+		
       $scope.save = function () {
-        userService.save($scope.entity, function (data) {
-        	console.log(data);
-          $scope.entity = {};
-          $scope.entities = userService.query();
-        });
+    	  
+    	  if($scope.files != null) {
+				var files = $scope.files;
+				$scope.files=null;
+				
+			 for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                $scope.upload = $upload.upload({
+                  url: 'http://localhost:9955/green-market/user/upload_user',
+                  method: 'POST',//upload.php script, node.js route, or servlet url
+                  file: file,
+                }).progress(function(evt) {
+                  console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                }).success(function(data, status, headers, config) {
+                  // file is uploaded successfully
+                  console.log(data);
+                });
+             }
+					$scope.entity.user.imgUrl = files[0].name;
+             } else {
+            	 if($scope.entity.user.imgUrl == null){
+            		 $scope.entity.user.imgUrl = "seller.png";
+            	 }
+             }
+    	  
+    	  
+    	  $scope.entity.user.role = "ROLE_SELLERS";
+    	  sellerService.save($scope.entity, function() {
+				$scope.entity = {};
+				data = sellerService.query();
+				data.$promise.then(function(data) {
+					$scope.tableParams.reload();
+				});
+
+			});
       };
       
       if ($routeParams.id) {

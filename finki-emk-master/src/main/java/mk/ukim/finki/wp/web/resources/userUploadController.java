@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
+@RequestMapping("/user")
 public class userUploadController {
 	 @Autowired
 	 private UserService service;
